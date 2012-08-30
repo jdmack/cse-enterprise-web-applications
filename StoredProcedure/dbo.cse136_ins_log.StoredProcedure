@@ -1,0 +1,22 @@
+USE [cse136]
+GO
+/****** Object:  StoredProcedure [dbo].[cse136_ins_log]    Script Date: 08/29/2012 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:  <Author,,Name>
+-- Create date: <Create Date,,>
+-- Description: <Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[cse136_ins_log]
+ @log varchar(100)
+begin
+ insert log
+ (
+   log
+ )
+ select
+  @log
+end
