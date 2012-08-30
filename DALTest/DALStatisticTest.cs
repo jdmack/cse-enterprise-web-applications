@@ -33,8 +33,10 @@ namespace DALTest
     public void InsertStatisticTest()
     {
         Statistic statistic = new Statistic();
-        statistic.player = 0;
-        statistic.game = 0;
+        statistic.player = new Player();
+        statistic.player.id = 0;
+        statistic.game = new Game();
+        statistic.game.id = 0;
         statistic.apm = 0;
         statistic.resources = 0;
         statistic.units = 0;
@@ -50,16 +52,18 @@ namespace DALTest
 
       Assert.AreEqual(0, errors.Count);
       Assert.AreEqual(statistic.id, verifyStatistic.id);
-      Assert.AreEqual(statistic.player, verifyStatistic.player);
-      Assert.AreEqual(statistic.game, verifyStatistic.game);
+      Assert.AreEqual(statistic.player.id, verifyStatistic.player.id);
+      Assert.AreEqual(statistic.game.id, verifyStatistic.game.id);
       Assert.AreEqual(statistic.apm, verifyStatistic.apm);
       Assert.AreEqual(statistic.resources, verifyStatistic.resources);
       Assert.AreEqual(statistic.units, verifyStatistic.units);
       Assert.AreEqual(statistic.structures, verifyStatistic.structures);
 
       Statistic statistic2 = new Statistic();
-      statistic.player = 1;
-      statistic.game = 1;
+      statistic.player = new Player();
+      statistic.player.id = 1;
+      statistic.game = new Game();
+      statistic.game.id = 1;
       statistic.apm = 1;
       statistic.resources = 1;
       statistic.units = 1;
@@ -71,8 +75,8 @@ namespace DALTest
       verifyStatistic = DALStatistic.GetStatisticDetail(statistic2.id, ref errors);
       Assert.AreEqual(0, errors.Count);
       Assert.AreEqual(statistic2.id, verifyStatistic.id);
-      Assert.AreEqual(statistic2.player, verifyStatistic.player);
-      Assert.AreEqual(statistic2.game, verifyStatistic.game);
+      Assert.AreEqual(statistic2.player.id, verifyStatistic.player.id);
+      Assert.AreEqual(statistic2.game.id, verifyStatistic.game.id);
       Assert.AreEqual(statistic2.apm, verifyStatistic.apm);
       Assert.AreEqual(statistic2.resources, verifyStatistic.resources);
       Assert.AreEqual(statistic2.units, verifyStatistic.units);

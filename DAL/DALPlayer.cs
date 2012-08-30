@@ -29,8 +29,8 @@ namespace DAL
 
         mySA.SelectCommand.Parameters["@player_name"].Value = player.name;
         mySA.SelectCommand.Parameters["@player_code"].Value = player.code;
-        mySA.SelectCommand.Parameters["@player_race"].Value = player.race;
-        mySA.SelectCommand.Parameters["@player_league"].Value = player.league;
+        mySA.SelectCommand.Parameters["@player_race"].Value = player.race.id;
+        mySA.SelectCommand.Parameters["@player_league"].Value = player.league.id;
 
         DataSet myDS = new DataSet();
         mySA.Fill(myDS);
@@ -67,8 +67,8 @@ namespace DAL
         mySA.SelectCommand.Parameters["@player_id"].Value = player.id;
         mySA.SelectCommand.Parameters["@player_name"].Value = player.name;
         mySA.SelectCommand.Parameters["@player_code"].Value = player.code;
-        mySA.SelectCommand.Parameters["@player_race"].Value = player.race;
-        mySA.SelectCommand.Parameters["@player_league"].Value = player.league;
+        mySA.SelectCommand.Parameters["@player_race"].Value = player.race.id;
+        mySA.SelectCommand.Parameters["@player_league"].Value = player.league.id;
 
         DataSet myDS = new DataSet();
         mySA.Fill(myDS);
@@ -139,8 +139,8 @@ namespace DAL
         player.id = id;
         player.name = myDS.Tables[0].Rows[0]["name"].ToString();
         player.code = Convert.ToInt32(myDS.Tables[0].Rows[0]["code"].ToString());
-        player.race = Convert.ToInt32(myDS.Tables[0].Rows[0]["race"].ToString());
-        player.league = Convert.ToInt32(myDS.Tables[0].Rows[0]["league"].ToString());
+        player.race = DALRace.GetRaceDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["race"].ToString()), ref errors);
+        player.league = DALLeague.GetLeagueDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["league"].ToString()), ref errors);
 
       }
       catch (Exception e)
@@ -181,8 +181,8 @@ namespace DAL
           player.id = Convert.ToInt32(myDS.Tables[0].Rows[0]["player_id"].ToString());
           player.name = myDS.Tables[0].Rows[0]["player_name"].ToString();
           player.code = Convert.ToInt32(myDS.Tables[0].Rows[0]["player_code"].ToString());
-          player.race = Convert.ToInt32(myDS.Tables[0].Rows[0]["player_race"].ToString());
-          player.league = Convert.ToInt32(myDS.Tables[0].Rows[0]["player_league"].ToString());
+          player.race = DALRace.GetRaceDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["race"].ToString()), ref errors);
+          player.league = DALLeague.GetLeagueDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["league"].ToString()), ref errors);
           playerList.Add(player);
         }
       }

@@ -12,9 +12,9 @@ namespace DomainModel
         [DataMember]
         public int id = -1;
         [DataMember]
-        public int player = -1;
+        public Player player = null;
         [DataMember]
-        public int game = -1;
+        public Game game = null;
         [DataMember]
         public int apm = -1;
         [DataMember]

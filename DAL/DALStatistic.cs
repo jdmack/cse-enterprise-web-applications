@@ -29,8 +29,8 @@ namespace DAL
         mySA.SelectCommand.Parameters.Add(new SqlParameter("@units", SqlDbType.Int));
         mySA.SelectCommand.Parameters.Add(new SqlParameter("@structures", SqlDbType.Int));
 
-        mySA.SelectCommand.Parameters["@player_id"].Value = statistic.player;
-        mySA.SelectCommand.Parameters["@game_id"].Value = statistic.game;
+        mySA.SelectCommand.Parameters["@player_id"].Value = statistic.player.id;
+        mySA.SelectCommand.Parameters["@game_id"].Value = statistic.game.id;
         mySA.SelectCommand.Parameters["@apm"].Value = statistic.apm;
         mySA.SelectCommand.Parameters["@resources"].Value = statistic.resources;
         mySA.SelectCommand.Parameters["@units"].Value = statistic.units;
@@ -72,8 +72,8 @@ namespace DAL
         mySA.SelectCommand.Parameters.Add(new SqlParameter("@structures", SqlDbType.Int));
 
         mySA.SelectCommand.Parameters["@stat_id"].Value = statistic.id;
-        mySA.SelectCommand.Parameters["@player_id"].Value = statistic.player;
-        mySA.SelectCommand.Parameters["@game_id"].Value = statistic.game;
+        mySA.SelectCommand.Parameters["@player_id"].Value = statistic.player.id;
+        mySA.SelectCommand.Parameters["@game_id"].Value = statistic.game.id;
         mySA.SelectCommand.Parameters["@apm"].Value = statistic.apm;
         mySA.SelectCommand.Parameters["@resources"].Value = statistic.resources;
         mySA.SelectCommand.Parameters["@units"].Value = statistic.units;
@@ -146,8 +146,8 @@ namespace DAL
 
         statistic = new Statistic();
         statistic.id = id;
-        statistic.player = Convert.ToInt32(myDS.Tables[0].Rows[0]["player"].ToString());
-        statistic.game = Convert.ToInt32(myDS.Tables[0].Rows[0]["game"].ToString());
+        statistic.player = DALPlayer.GetPlayerDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["player"].ToString()), ref errors);
+        statistic.game = DALGame.GetGameDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["game"].ToString()), ref errors);
         statistic.apm = Convert.ToInt32(myDS.Tables[0].Rows[0]["apm"].ToString());
         statistic.resources = Convert.ToInt32(myDS.Tables[0].Rows[0]["resources"].ToString());
         statistic.units = Convert.ToInt32(myDS.Tables[0].Rows[0]["units"].ToString());
@@ -190,8 +190,8 @@ namespace DAL
         {
             statistic = new Statistic();
             statistic.id = Convert.ToInt32(myDS.Tables[0].Rows[0]["id"].ToString());
-            statistic.player = Convert.ToInt32(myDS.Tables[0].Rows[0]["player"].ToString());
-            statistic.game = Convert.ToInt32(myDS.Tables[0].Rows[0]["game"].ToString());
+            statistic.player = DALPlayer.GetPlayerDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["player"].ToString()), ref errors);
+            statistic.game = DALGame.GetGameDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["game"].ToString()), ref errors);
             statistic.apm = Convert.ToInt32(myDS.Tables[0].Rows[0]["apm"].ToString());
             statistic.resources = Convert.ToInt32(myDS.Tables[0].Rows[0]["resources"].ToString());
             statistic.units = Convert.ToInt32(myDS.Tables[0].Rows[0]["units"].ToString());

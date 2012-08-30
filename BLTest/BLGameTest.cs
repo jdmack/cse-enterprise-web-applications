@@ -102,12 +102,17 @@ namespace BLTest
             game.matchup = "PvZ";
             game.time = new DateTime(2012, 8, 28, 11, 59, 59);
             game.length = "12:12";
-            game.player1 = 1;
-            game.player1_race = 1;
-            game.player2 = 2;
-            game.player2_race = 2;
-            game.winner = 1;
-            game.map = 1;
+            game.player1 = new Player();
+            game.player1.id = 1;
+            game.player1_race = new Race();
+            game.player1_race.id = 1;
+            game.player2 = new Player();
+            game.player2.id = 2;
+            game.player2_race = new Race();
+            game.player2_race.id = 2;
+            game.winner = game.player1;
+            game.map = new Map();
+            game.map.id = 1;
 
             List<string> errors = new List<string>();
             BLGame.InsertGame(game, ref errors);
@@ -120,12 +125,12 @@ namespace BLTest
             Assert.AreEqual(game.matchup, verifyGame.matchup);
             Assert.AreEqual(game.time, verifyGame.time);
             Assert.AreEqual(game.length, verifyGame.length);
-            Assert.AreEqual(game.player1, verifyGame.player1);
-            Assert.AreEqual(game.player1_race, verifyGame.player1_race);
-            Assert.AreEqual(game.player2, verifyGame.player2);
-            Assert.AreEqual(game.player2_race, verifyGame.player2_race);
-            Assert.AreEqual(game.winner, verifyGame.winner);
-            Assert.AreEqual(game.map, verifyGame.map);
+            Assert.AreEqual(game.player1.id, verifyGame.player1.id);
+            Assert.AreEqual(game.player1_race.id, verifyGame.player1_race.id);
+            Assert.AreEqual(game.player2.id, verifyGame.player2.id);
+            Assert.AreEqual(game.player2_race.id, verifyGame.player2_race.id);
+            Assert.AreEqual(game.winner.id, verifyGame.winner.id);
+            Assert.AreEqual(game.map.id, verifyGame.map.id);
 
             BLGame.DeleteGame(game.id, ref errors);
 

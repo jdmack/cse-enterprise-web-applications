@@ -99,8 +99,10 @@ namespace BLTest
         {
             Statistic statistic = new Statistic();
             statistic.id = 1;
-            statistic.player = 2;
-            statistic.game = 3;
+            statistic.player = new Player();
+            statistic.player.id = 2;
+            statistic.game = new Game();
+            statistic.game.id = 3;
             statistic.apm = 100;
             statistic.resources = 2000;
             statistic.units = 150;
@@ -115,8 +117,8 @@ namespace BLTest
             Statistic verifyStatistic = BLStatistic.GetStatistic(statistic.id, ref errors);
 
             Assert.AreEqual(0, errors.Count);
-            Assert.AreEqual(statistic.player, verifyStatistic.player);
-            Assert.AreEqual(statistic.game, verifyStatistic.game);
+            Assert.AreEqual(statistic.player.id, verifyStatistic.player.id);
+            Assert.AreEqual(statistic.game.id, verifyStatistic.game.id);
             Assert.AreEqual(statistic.apm, verifyStatistic.apm);
             Assert.AreEqual(statistic.resources, verifyStatistic.resources);
             Assert.AreEqual(statistic.units, verifyStatistic.units);

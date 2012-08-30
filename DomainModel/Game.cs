@@ -18,16 +18,20 @@ namespace DomainModel
         [DataMember]
         public string length = "0:00";
         [DataMember]
-        public int player1 = -1;
+        public Player player1 = null;
         [DataMember]
-        public int player1_race = -1;
+        public Race player1_race = null;
         [DataMember]
-        public int player2 = -1;
+        public Player player2 = null;
         [DataMember]
-        public int player2_race = -1;
+        public Race player2_race = null;
         [DataMember]
-        public int winner = -1;
+        public Player winner = null;
         [DataMember]
-        public int map = -1;
+        public Map map = null;
+        [DataMember]
+        public Statistic player1_statistic = null;
+        [DataMember]
+        public Statistic player2_statistic = null;
     }
 }

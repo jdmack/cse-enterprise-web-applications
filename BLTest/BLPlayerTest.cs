@@ -101,8 +101,13 @@ namespace BLTest
             Player player = new Player();
             player.name = "Niter";
             player.code = 777;
-            player.race = 1;
-            player.league = 1;
+            player.race = new Race();
+                player.race.id = 3;
+                player.race.name = "Zerg";
+                player.race.code = 'Z';
+            player.league = new League();
+                player.league.id = 3;
+                player.league.name = "Platinum";
 
             List<string> errors = new List<string>();
             BLPlayer.InsertPlayer(player, ref errors);
@@ -114,8 +119,8 @@ namespace BLTest
             Assert.AreEqual(0, errors.Count);
             Assert.AreEqual(player.name, verifyPlayer.name);
             Assert.AreEqual(player.code, verifyPlayer.code);
-            Assert.AreEqual(player.race, verifyPlayer.race);
-            Assert.AreEqual(player.league, verifyPlayer.league);
+            Assert.AreEqual(player.race.id, verifyPlayer.race.id);
+            Assert.AreEqual(player.league.id, verifyPlayer.league.id);
 
             BLPlayer.DeletePlayer(player.id, ref errors);
 

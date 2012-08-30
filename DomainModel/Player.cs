@@ -16,8 +16,8 @@ namespace DomainModel
         [DataMember]
         public int code = -1;
         [DataMember]
-        public int race = -1;
+        public Race race = null;
         [DataMember]
-        public int league = -1;
+        public League league = null;
     }
 }

@@ -26,14 +26,14 @@ namespace BL
                 errors.Add("Player code cannot be negative");
             }
 
-            if (player.race < 0)
+            if (player.race == null)
             {
-                errors.Add("Player race cannot be negative");
+                errors.Add("Player race cannot be null");
             }
 
-            if (player.league < 0)
+            if (player.league == null)
             {
-                errors.Add("Player leauge cannot be negative");
+                errors.Add("Player leauge cannot be null");
             }
             if (errors.Count > 0)
                 return;
@@ -58,13 +58,13 @@ namespace BL
                 errors.Add("Player code cannot be negative");
             }
 
-            if (player.race < 0)
+            if (player.race == null)
             {
-                errors.Add("Player race cannot be negative");
+                errors.Add("Player race cannot be null");
             }
-            if (player.league < 0)
+            if (player.league == null)
             {
-                errors.Add("Player leauge cannot be negative");
+                errors.Add("Player leauge cannot be null");
             }
             if (errors.Count > 0)
                 return;

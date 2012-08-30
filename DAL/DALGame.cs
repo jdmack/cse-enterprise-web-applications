@@ -35,12 +35,12 @@ namespace DAL
                 mySA.SelectCommand.Parameters["@matchup"].Value = game.matchup;
                 mySA.SelectCommand.Parameters["@time"].Value = game.time;
                 mySA.SelectCommand.Parameters["@length"].Value = game.length;
-                mySA.SelectCommand.Parameters["@player1"].Value = game.player1;
-                mySA.SelectCommand.Parameters["@player1_race"].Value = game.player1_race;
-                mySA.SelectCommand.Parameters["@player2"].Value = game.player2;
-                mySA.SelectCommand.Parameters["@player2_race"].Value = game.player2_race;
-                mySA.SelectCommand.Parameters["@winner"].Value = game.winner;
-                mySA.SelectCommand.Parameters["@map"].Value = game.map;
+                mySA.SelectCommand.Parameters["@player1"].Value = game.player1.id;
+                mySA.SelectCommand.Parameters["@player1_race"].Value = game.player1_race.id;
+                mySA.SelectCommand.Parameters["@player2"].Value = game.player2.id;
+                mySA.SelectCommand.Parameters["@player2_race"].Value = game.player2_race.id;
+                mySA.SelectCommand.Parameters["@winner"].Value = game.winner.id;
+                mySA.SelectCommand.Parameters["@map"].Value = game.map.id;
 
                 DataSet myDS = new DataSet();
                 mySA.Fill(myDS);
@@ -83,12 +83,12 @@ namespace DAL
                 mySA.SelectCommand.Parameters["@matchup"].Value = game.matchup;
                 mySA.SelectCommand.Parameters["@time"].Value = game.time;
                 mySA.SelectCommand.Parameters["@length"].Value = game.length;
-                mySA.SelectCommand.Parameters["@player1"].Value = game.player1;
-                mySA.SelectCommand.Parameters["@player1_race"].Value = game.player1_race;
-                mySA.SelectCommand.Parameters["@player2"].Value = game.player2;
-                mySA.SelectCommand.Parameters["@player2_race"].Value = game.player2_race;
-                mySA.SelectCommand.Parameters["@winner"].Value = game.winner;
-                mySA.SelectCommand.Parameters["@map"].Value = game.map;
+                mySA.SelectCommand.Parameters["@player1"].Value = game.player1.id;
+                mySA.SelectCommand.Parameters["@player1_race"].Value = game.player1_race.id;
+                mySA.SelectCommand.Parameters["@player2"].Value = game.player2.id;
+                mySA.SelectCommand.Parameters["@player2_race"].Value = game.player2_race.id;
+                mySA.SelectCommand.Parameters["@winner"].Value = game.winner.id;
+                mySA.SelectCommand.Parameters["@map"].Value = game.map.id;
 
                 DataSet myDS = new DataSet();
                 mySA.Fill(myDS);
@@ -160,12 +160,12 @@ namespace DAL
                 game.matchup = myDS.Tables[0].Rows[0]["matchup"].ToString();
                 game.time = Convert.ToDateTime(myDS.Tables[0].Rows[0]["time"].ToString());
                 game.length = myDS.Tables[0].Rows[0]["length"].ToString();
-                game.player1 = Convert.ToInt32(myDS.Tables[0].Rows[0]["player1"].ToString());
-                game.player1_race = Convert.ToInt32(myDS.Tables[0].Rows[0]["player1_race"].ToString());
-                game.player2 = Convert.ToInt32(myDS.Tables[0].Rows[0]["player2"].ToString());
-                game.player2_race = Convert.ToInt32(myDS.Tables[0].Rows[0]["player2_race"].ToString());
-                game.winner = Convert.ToInt32(myDS.Tables[0].Rows[0]["winner"].ToString());
-                game.map = Convert.ToInt32(myDS.Tables[0].Rows[0]["map"].ToString());
+                game.player1 = DALPlayer.GetPlayerDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["player1"].ToString()), ref errors);
+                game.player1_race = DALRace.GetRaceDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["player1_race"].ToString()), ref errors);
+                game.player2 = DALPlayer.GetPlayerDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["player2"].ToString()), ref errors);
+                game.player2_race = DALRace.GetRaceDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["player2_race"].ToString()), ref errors);
+                game.winner = DALPlayer.GetPlayerDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["winner"].ToString()), ref errors);
+                game.map = DALMap.GetMapDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["map"].ToString()), ref errors);
             }
             catch (Exception e)
             {
@@ -207,12 +207,12 @@ namespace DAL
                     game.matchup = myDS.Tables[0].Rows[0]["matchup"].ToString();
                     game.time = Convert.ToDateTime(myDS.Tables[0].Rows[0]["time"].ToString());
                     game.length = myDS.Tables[0].Rows[0]["length"].ToString();
-                    game.player1 = Convert.ToInt32(myDS.Tables[0].Rows[0]["player1"].ToString());
-                    game.player1_race = Convert.ToInt32(myDS.Tables[0].Rows[0]["player1_race"].ToString());
-                    game.player2 = Convert.ToInt32(myDS.Tables[0].Rows[0]["player2"].ToString());
-                    game.player2_race = Convert.ToInt32(myDS.Tables[0].Rows[0]["player2_race"].ToString());
-                    game.player2 = Convert.ToInt32(myDS.Tables[0].Rows[0]["winner"].ToString());
-                    game.player2_race = Convert.ToInt32(myDS.Tables[0].Rows[0]["map"].ToString());
+                    game.player1 = DALPlayer.GetPlayerDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["player1"].ToString()), ref errors);
+                    game.player1_race = DALRace.GetRaceDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["player1_race"].ToString()), ref errors);
+                    game.player2 = DALPlayer.GetPlayerDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["player2"].ToString()), ref errors);
+                    game.player2_race = DALRace.GetRaceDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["player2_race"].ToString()), ref errors);
+                    game.winner = DALPlayer.GetPlayerDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["winner"].ToString()), ref errors);
+                    game.map = DALMap.GetMapDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["map"].ToString()), ref errors);
 
                     gameList.Add(game);
                 }

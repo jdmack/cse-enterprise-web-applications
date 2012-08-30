@@ -30,34 +30,34 @@ namespace BL
                 errors.Add("Game length must be 00:00");
             }
 
-            if (game.player1 < 0)
+            if (game.player1 == null)
             {
-                errors.Add("player1 cannot be negative");
+                errors.Add("player1 cannot be null");
             }
 
-            if (game.player1_race < 0)
+            if (game.player1_race == null)
             {
-                errors.Add("player1_race cannot be negative");
+                errors.Add("player1_race cannot be null");
             }
 
-            if (game.player2 < 0)
+            if (game.player2 == null)
             {
-                errors.Add("player2 cannot be negative");
+                errors.Add("player2 cannot be null");
             }
 
-            if (game.player2_race < 0)
+            if (game.player2_race == null)
             {
-                errors.Add("player2_race cannot be negative");
+                errors.Add("player2_race cannot be null");
             }
 
-            if (game.winner < 0)
+            if (game.winner == null)
             {
-                errors.Add("winner cannot be negative");
+                errors.Add("winner cannot be null");
             }
 
-            if (game.map < 0)
+            if (game.map == null)
             {
-                errors.Add("map cannot be negative");
+                errors.Add("map cannot be null");
             }
 
             if (errors.Count > 0)
@@ -86,34 +86,34 @@ namespace BL
                 errors.Add("Game length must be 00:00");
             }
 
-            if (game.player1 < 0)
+            if (game.player1 == null)
             {
-                errors.Add("player1 cannot be negative");
+                errors.Add("player1 cannot be null");
             }
 
-            if (game.player1_race < 0)
+            if (game.player1_race == null)
             {
-                errors.Add("player1_race cannot be negative");
+                errors.Add("player1_race cannot be null");
             }
 
-            if (game.player2 < 0)
+            if (game.player2 == null)
             {
-                errors.Add("player2 cannot be negative");
+                errors.Add("player2 cannot be null");
             }
 
-            if (game.player2_race < 0)
+            if (game.player2_race == null)
             {
-                errors.Add("player2_race cannot be negative");
+                errors.Add("player2_race cannot be null");
             }
 
-            if (game.winner < 0)
+            if (game.winner == null)
             {
-                errors.Add("winner cannot be negative");
+                errors.Add("winner cannot be null");
             }
 
-            if (game.map < 0)
+            if (game.map == null)
             {
-                errors.Add("map cannot be negative");
+                errors.Add("map cannot be null");
             }
 
             if (errors.Count > 0)

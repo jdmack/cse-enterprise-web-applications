@@ -67,13 +67,42 @@ namespace DALTest
     [TestMethod]
     public void InsertPlayerTest()
     {
-      Player player = new Player();
-      player.name = "Niter";
-      player.code = 777;
-      player.race = 1;
-      player.league = 1;
+        List<string> errors = new List<string>();
 
-      List<string> errors = new List<string>();
+        Race race = new Race();
+        race.name = "Protoss";
+        race.code = 'P';
+        int raceID = DALRace.InsertRace(race, ref errors);
+        race.id = raceID;
+
+        Race race3 = new Race();
+        race.name = "Zerg";
+        race.code = 'Z';
+        raceID = DALRace.InsertRace(race3, ref errors);
+        race.id = raceID;
+
+        League league = new League();
+        league.name = "Diamond";
+        int leagueID = DALLeague.InsertLeague(league, ref errors);
+        league.id = leagueID;
+
+        League league2 = new League();
+        league.name = "Platinum";
+        leagueID = DALLeague.InsertLeague(league2, ref errors);
+        league.id = leagueID;
+
+        Player player = new Player();
+        player.name = "Niter";
+        player.code = 777;
+        player.race = race3;
+        player.league = league2;
+
+        Player player2 = new Player();
+        player2.name = "WolfBro";
+        player2.code = 123;
+        player2.race = race;
+        player2.league = league;
+
       int playerID = DALPlayer.InsertPlayer(player, ref errors);
       player.id = playerID;
 
@@ -84,14 +113,9 @@ namespace DALTest
       Assert.AreEqual(0, errors.Count);
       Assert.AreEqual(player.name, verifyPlayer.name);
       Assert.AreEqual(player.code, verifyPlayer.code);
-      Assert.AreEqual(player.race, verifyPlayer.race);
-      Assert.AreEqual(player.league, verifyPlayer.league);
+      Assert.AreEqual(player.race.id, verifyPlayer.race.id);
+      Assert.AreEqual(player.league.id, verifyPlayer.league.id);
 
-      Player player2 = new Player();
-      player2.name = "WolfBro";
-      player2.code = 123;
-      player2.race = 2;
-      player2.league = 1;
       player2.id = player.id;
 
       DALPlayer.UpdatePlayer(player2, ref errors);
@@ -100,8 +124,8 @@ namespace DALTest
       Assert.AreEqual(0, errors.Count);
       Assert.AreEqual(player2.name, verifyPlayer.name);
       Assert.AreEqual(player2.code, verifyPlayer.code);
-      Assert.AreEqual(player2.race, verifyPlayer.race);
-      Assert.AreEqual(player2.league, verifyPlayer.league);
+      Assert.AreEqual(player2.race.id, verifyPlayer.race.id);
+      Assert.AreEqual(player2.league.id, verifyPlayer.league.id);
 
       DALPlayer.DeletePlayer(player.id, ref errors);
 
