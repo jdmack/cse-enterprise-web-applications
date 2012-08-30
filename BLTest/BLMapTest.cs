@@ -97,23 +97,27 @@ namespace BLTest
         [TestMethod]
         public void MapInsertAndSelectTest()
         {
-            Map map = new Map(1,"test",2,"10x10");
+            Map map = new Map();
+            map.id = 1;
+            map.name = "test";
+            map.spawns = 2;
+            map.size = "10x10";
    
             List<string> errors = new List<string>();
             BLMap.InsertMap(map, ref errors);
 
             Assert.AreEqual(0, errors.Count);
 
-            Map verifyMap = BLMap.GetMap(map.getId(), ref errors);
+            Map verifyMap = BLMap.GetMap(map.id, ref errors);
 
             Assert.AreEqual(0, errors.Count);
-            Assert.AreEqual(map.getName(), verifyMap.getName());
-            Assert.AreEqual(map.getSpawns(), verifyMap.getSpawns());
-            Assert.AreEqual(map.getSize(), verifyMap.getSize());
+            Assert.AreEqual(map.name, verifyMap.name);
+            Assert.AreEqual(map.spawns, verifyMap.spawns);
+            Assert.AreEqual(map.size, verifyMap.size);
 
-            BLMap.DeleteMap(map.getId(), ref errors);
+            BLMap.DeleteMap(map.id, ref errors);
 
-            Map verifyEmptyMap = BLMap.GetMap(map.getId(), ref errors);
+            Map verifyEmptyMap = BLMap.GetMap(map.id, ref errors);
             Assert.AreEqual(0, errors.Count);
             Assert.AreEqual(null, verifyEmptyMap);
 

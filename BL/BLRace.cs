@@ -16,7 +16,7 @@ namespace BL
                 errors.Add("Race cannot be null");
             }
 
-            if (race.getName() == null)
+            if (race.name == null)
             {
                 errors.Add("Race name cannot be null");
             }
@@ -34,7 +34,7 @@ namespace BL
                 errors.Add("Race cannot be null");
             }
 
-            if (race.getName() == null)
+            if (race.name == null)
             {
                 errors.Add("Race name cannot be null");
             }

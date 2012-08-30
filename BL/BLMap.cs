@@ -16,12 +16,12 @@ namespace BL
                 errors.Add("Map cannot be null");
             }
 
-            if (map.getName() == null)
+            if (map.name == null)
             {
                 errors.Add("Map name cannot be null");
             }
 
-            if (map.getSpawns() < 0)
+            if (map.spawns < 0)
             {
                 errors.Add("Map spawn cannot be negative");
             }
@@ -39,12 +39,12 @@ namespace BL
                 errors.Add("Map cannot be null");
             }
 
-            if (map.getName() == null)
+            if (map.name == null)
             {
                 errors.Add("Map name cannot be null");
             }
 
-            if (map.getSpawns() < 0)
+            if (map.spawns < 0)
             {
                 errors.Add("Map spawn cannot be negative");
             }

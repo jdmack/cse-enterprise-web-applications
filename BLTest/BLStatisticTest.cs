@@ -97,26 +97,34 @@ namespace BLTest
         [TestMethod]
         public void StatisticInsertAndSelectTest()
         {
-            Statistic statistic = new Statistic(1, 2, 3,100,2000,150,1000);
+            Statistic statistic = new Statistic();
+            statistic.id = 1;
+            statistic.player = 2;
+            statistic.game = 3;
+            statistic.apm = 100;
+            statistic.resources = 2000;
+            statistic.units = 150;
+            statistic.structures = 1000;
+
         
             List<string> errors = new List<string>();
             BLStatistic.InsertStatistic(statistic, ref errors);
 
             Assert.AreEqual(0, errors.Count);
 
-            Statistic verifyStatistic = BLStatistic.GetStatistic(statistic.getId(), ref errors);
+            Statistic verifyStatistic = BLStatistic.GetStatistic(statistic.id, ref errors);
 
             Assert.AreEqual(0, errors.Count);
-            Assert.AreEqual(statistic.getPlayer(), verifyStatistic.getPlayer());
-            Assert.AreEqual(statistic.getGame(), verifyStatistic.getGame());
-            Assert.AreEqual(statistic.getAPM(), verifyStatistic.getAPM());
-            Assert.AreEqual(statistic.getResources(), verifyStatistic.getResources());
-            Assert.AreEqual(statistic.getUnits(), verifyStatistic.getUnits());
-            Assert.AreEqual(statistic.getStructures(), verifyStatistic.getStructures());
+            Assert.AreEqual(statistic.player, verifyStatistic.player);
+            Assert.AreEqual(statistic.game, verifyStatistic.game);
+            Assert.AreEqual(statistic.apm, verifyStatistic.apm);
+            Assert.AreEqual(statistic.resources, verifyStatistic.resources);
+            Assert.AreEqual(statistic.units, verifyStatistic.units);
+            Assert.AreEqual(statistic.structures, verifyStatistic.structures);
 
-            BLStatistic.DeleteStatistic(statistic.getId(), ref errors);
+            BLStatistic.DeleteStatistic(statistic.id, ref errors);
 
-            Statistic verifyEmptyStatistic = BLStatistic.GetStatistic(statistic.getId(), ref errors);
+            Statistic verifyEmptyStatistic = BLStatistic.GetStatistic(statistic.id, ref errors);
             Assert.AreEqual(0, errors.Count);
             Assert.AreEqual(null, verifyEmptyStatistic);
 

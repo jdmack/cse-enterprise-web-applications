@@ -97,22 +97,25 @@ namespace BLTest
         [TestMethod]
         public void RaceInsertAndSelectTest()
         {
-            Race race = new Race(1, "raceTest", 'R');
+            Race race = new Race();
+            race.id = 1;
+            race.name = "raceTest";
+            race.code = 'R';
 
             List<string> errors = new List<string>();
             BLRace.InsertRace(race, ref errors);
 
             Assert.AreEqual(0, errors.Count);
 
-            Race verifyRace = BLRace.GetRace(race.getId(), ref errors);
+            Race verifyRace = BLRace.GetRace(race.id, ref errors);
 
             Assert.AreEqual(0, errors.Count);
-            Assert.AreEqual(race.getName(), verifyRace.getName());
-            Assert.AreEqual(race.getCode(), verifyRace.getCode());
+            Assert.AreEqual(race.name, verifyRace.name);
+            Assert.AreEqual(race.code, verifyRace.code);
 
-            BLRace.DeleteRace(race.getId(), ref errors);
+            BLRace.DeleteRace(race.id, ref errors);
 
-            Race verifyEmptyRace = BLRace.GetRace(race.getId(), ref errors);
+            Race verifyEmptyRace = BLRace.GetRace(race.id, ref errors);
             Assert.AreEqual(0, errors.Count);
             Assert.AreEqual(null, verifyEmptyRace);
 
