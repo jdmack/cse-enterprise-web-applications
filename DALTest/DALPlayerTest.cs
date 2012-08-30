@@ -76,10 +76,10 @@ namespace DALTest
         race.id = raceID;
 
         Race race3 = new Race();
-        race.name = "Zerg";
-        race.code = 'Z';
+        race3.name = "Zerg";
+        race3.code = 'Z';
         raceID = DALRace.InsertRace(race3, ref errors);
-        race.id = raceID;
+        race3.id = raceID;
 
         League league = new League();
         league.name = "Diamond";
@@ -87,9 +87,9 @@ namespace DALTest
         league.id = leagueID;
 
         League league2 = new League();
-        league.name = "Platinum";
+        league2.name = "Platinum";
         leagueID = DALLeague.InsertLeague(league2, ref errors);
-        league.id = leagueID;
+        league2.id = leagueID;
 
         Player player = new Player();
         player.name = "Niter";

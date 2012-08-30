@@ -161,7 +161,9 @@ namespace DAL
                 game.time = Convert.ToDateTime(myDS.Tables[0].Rows[0]["time"].ToString());
                 game.length = myDS.Tables[0].Rows[0]["length"].ToString();
                 game.player1 = DALPlayer.GetPlayerDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["player1"].ToString()), ref errors);
-                game.player1_race = DALRace.GetRaceDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["player1_race"].ToString()), ref errors);
+                string player1_race_id_string = myDS.Tables[0].Rows[0]["player1_race"].ToString();
+                int player1_race_id = Convert.ToInt32(player1_race_id_string);
+                game.player1_race = DALRace.GetRaceDetail(player1_race_id, ref errors);
                 game.player2 = DALPlayer.GetPlayerDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["player2"].ToString()), ref errors);
                 game.player2_race = DALRace.GetRaceDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["player2_race"].ToString()), ref errors);
                 game.winner = DALPlayer.GetPlayerDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["winner"].ToString()), ref errors);

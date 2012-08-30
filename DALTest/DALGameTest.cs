@@ -76,16 +76,16 @@ namespace DALTest
         race.id = raceID;
 
         Race race2 = new Race();
-        race.name = "Terran";
-        race.code = 'T';
+        race2.name = "Terran";
+        race2.code = 'T';
         raceID = DALRace.InsertRace(race2, ref errors);
-        race.id = raceID;
+        race2.id = raceID;
 
         Race race3 = new Race();
-        race.name = "Zerg";
-        race.code = 'Z';
+        race3.name = "Zerg";
+        race3.code = 'Z';
         raceID = DALRace.InsertRace(race3, ref errors);
-        race.id = raceID;
+        race3.id = raceID;
 
         League league = new League();
         league.name = "Diamond";
@@ -93,14 +93,14 @@ namespace DALTest
         league.id = leagueID;
 
         League league2 = new League();
-        league.name = "Platinum";
+        league2.name = "Platinum";
         leagueID = DALLeague.InsertLeague(league2, ref errors);
-        league.id = leagueID;
+        league2.id = leagueID;
 
         League league3 = new League();
-        league.name = "Master";
+        league3.name = "Master";
         leagueID = DALLeague.InsertLeague(league3, ref errors);
-        league.id = leagueID;
+        league3.id = leagueID;
 
         Map map = new Map();
         map.name = "Shakuras Plateau";
@@ -114,7 +114,7 @@ namespace DALTest
         map2.spawns = 2;
         map2.size = "100x100";
         mapID = DALMap.InsertMap(map, ref errors);
-        map.id = mapID;
+        map2.id = mapID;
 
         Player player = new Player();
         player.name = "Niter";
@@ -130,7 +130,7 @@ namespace DALTest
         player2.race = race;
         player2.league = league;
         playerID = DALPlayer.InsertPlayer(player2, ref errors);
-        player.id = playerID;
+        player2.id = playerID;
 
         Player player3 = new Player();
         player3.name = "Corone";
@@ -138,7 +138,7 @@ namespace DALTest
         player3.race = race2;
         player3.league = league3;
         playerID = DALPlayer.InsertPlayer(player3, ref errors);
-        player.id = playerID;
+        player3.id = playerID;
         
       Game game = new Game();
       game.matchup = "ZVT";
