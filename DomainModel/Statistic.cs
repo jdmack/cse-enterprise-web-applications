@@ -10,119 +10,18 @@ namespace DomainModel
     public class Statistic
     {
         [DataMember]
-        private int id;
-
+        public int id = -1;
         [DataMember]
-        private int player;
-
+        public int player = -1;
         [DataMember]
-        private int game;
-
+        public int game = -1;
         [DataMember]
-        private int apm;
-
+        public int apm = -1;
         [DataMember]
-        private int resources;
-
+        public int resources = -1;
         [DataMember]
-        private int units;
-
+        public int units = -1;
         [DataMember]
-        private int structures;
-
-        public Statistic()
-        {
-            id = -1;
-            player = -1;
-            game = -1;
-            apm = -1;
-            resources = -1;
-            units = -1;
-            structures = -1;
-        }
-
-        public Statistic(int id, int player, int game, int apm, int resources, int units, int structures)
-        {
-            this.id = id;
-            this.player = player;
-            this.game = game;
-            this.apm = apm;
-            this.resources = resources;
-            this.units = units;
-            this.structures = structures;
-        }
-        
-        ~Statistic()
-        {
-            // cleanup code
-        }
-        public int getId()
-        {
-            return id;
-        }
-
-        public void setId(int id)
-        {
-            this.id = id;
-        }
-
-        public int getPlayer()
-        {
-            return player;
-        }
-
-        public void setPlayer(int player)
-        {
-            this.player = player;
-        }
-        public int getGame()
-        {
-            return game;
-        }
-
-        public void setGame(int game)
-        {
-            this.game = game;
-        }
-
-        public int getAPM()
-        {
-            return apm;
-        }
-
-        public void setAPM(int apm)
-        {
-            this.apm = apm;
-        }
-
-        public int getResources()
-        {
-            return resources;
-        }
-
-        public void setResources(int resources)
-        {
-            this.resources = resources;
-        }
-
-        public int getUnits()
-        {
-            return units;
-        }
-
-        public void setUnits(int units)
-        {
-            this.units = units;
-        }
-        public int getStructures()
-        {
-            return structures;
-        }
-
-        public void setStructures(int structures)
-        {
-            this.structures = structures;
-        }
-
+        public int structures = -1;
     }
 }

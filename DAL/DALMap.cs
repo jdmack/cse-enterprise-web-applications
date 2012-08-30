@@ -26,9 +26,9 @@ namespace DAL
         mySA.SelectCommand.Parameters.Add(new SqlParameter("@spawns", SqlDbType.Int));
         mySA.SelectCommand.Parameters.Add(new SqlParameter("@size", SqlDbType.VarChar, 50));
 
-        mySA.SelectCommand.Parameters["@map_name"].Value = map.getName();
-        mySA.SelectCommand.Parameters["@spawns"].Value = map.getSpawns();
-        mySA.SelectCommand.Parameters["@size"].Value = map.getSize();
+        mySA.SelectCommand.Parameters["@map_name"].Value = map.name;
+        mySA.SelectCommand.Parameters["@spawns"].Value = map.spawns;
+        mySA.SelectCommand.Parameters["@size"].Value = map.size;
 
         DataSet myDS = new DataSet();
         mySA.Fill(myDS);
@@ -62,10 +62,10 @@ namespace DAL
         mySA.SelectCommand.Parameters.Add(new SqlParameter("@spawns", SqlDbType.Int));
         mySA.SelectCommand.Parameters.Add(new SqlParameter("@size", SqlDbType.VarChar, 50));
 
-        mySA.SelectCommand.Parameters["@map_id"].Value = map.getId();
-        mySA.SelectCommand.Parameters["@name"].Value = map.getName();
-        mySA.SelectCommand.Parameters["@spawns"].Value = map.getSpawns();
-        mySA.SelectCommand.Parameters["@size"].Value = map.getSize();
+        mySA.SelectCommand.Parameters["@map_id"].Value = map.id;
+        mySA.SelectCommand.Parameters["@name"].Value = map.name;
+        mySA.SelectCommand.Parameters["@spawns"].Value = map.spawns;
+        mySA.SelectCommand.Parameters["@size"].Value = map.size;
 
         DataSet myDS = new DataSet();
         mySA.Fill(myDS);
@@ -133,10 +133,10 @@ namespace DAL
           return null;
 
         map = new Map();
-        map.setId(id);
-        map.setName(myDS.Tables[0].Rows[0]["name"].ToString());
-        map.setSpawns(Convert.ToInt32(myDS.Tables[0].Rows[0]["spawns"].ToString()));
-        map.setSize(myDS.Tables[0].Rows[0]["size"].ToString());
+        map.id = id;
+        map.name = myDS.Tables[0].Rows[0]["name"].ToString();
+        map.spawns = Convert.ToInt32(myDS.Tables[0].Rows[0]["spawns"].ToString());
+        map.size = myDS.Tables[0].Rows[0]["size"].ToString();
 
       }
       catch (Exception e)
@@ -174,10 +174,10 @@ namespace DAL
         for (int i = 0; i < myDS.Tables[0].Rows.Count; i++)
         {
             map = new Map();
-            map.setId(Convert.ToInt32(myDS.Tables[0].Rows[0]["id"].ToString()));
-            map.setName(myDS.Tables[0].Rows[0]["name"].ToString());
-            map.setSpawns(Convert.ToInt32(myDS.Tables[0].Rows[0]["spawns"].ToString()));
-            map.setSize(myDS.Tables[0].Rows[0]["size"].ToString());
+            map.id = Convert.ToInt32(myDS.Tables[0].Rows[0]["id"].ToString());
+            map.name = myDS.Tables[0].Rows[0]["name"].ToString();
+            map.spawns = Convert.ToInt32(myDS.Tables[0].Rows[0]["spawns"].ToString());
+            map.size = myDS.Tables[0].Rows[0]["size"].ToString();
             mapList.Add(map);
         }
       }

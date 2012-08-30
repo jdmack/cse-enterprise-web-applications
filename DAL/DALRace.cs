@@ -25,8 +25,8 @@ namespace DAL
         mySA.SelectCommand.Parameters.Add(new SqlParameter("@name", SqlDbType.VarChar, 50));
         mySA.SelectCommand.Parameters.Add(new SqlParameter("@code", SqlDbType.Char, 1));
 
-        mySA.SelectCommand.Parameters["@name"].Value = race.getName();
-        mySA.SelectCommand.Parameters["@code"].Value = race.getCode();
+        mySA.SelectCommand.Parameters["@name"].Value = race.name;
+        mySA.SelectCommand.Parameters["@code"].Value = race.code;
 
         DataSet myDS = new DataSet();
         mySA.Fill(myDS);
@@ -58,9 +58,9 @@ namespace DAL
         mySA.SelectCommand.Parameters.Add(new SqlParameter("@name", SqlDbType.VarChar, 50));
         mySA.SelectCommand.Parameters.Add(new SqlParameter("@code", SqlDbType.Char, 1));
 
-        mySA.SelectCommand.Parameters["@race_id"].Value = race.getId();
-        mySA.SelectCommand.Parameters["@name"].Value = race.getName();
-        mySA.SelectCommand.Parameters["@code"].Value = race.getCode();
+        mySA.SelectCommand.Parameters["@race_id"].Value = race.id;
+        mySA.SelectCommand.Parameters["@name"].Value = race.name;
+        mySA.SelectCommand.Parameters["@code"].Value = race.code;
 
         DataSet myDS = new DataSet();
         mySA.Fill(myDS);
@@ -128,9 +128,9 @@ namespace DAL
           return null;
 
         race = new Race();
-        race.setId(id);
-        race.setName(myDS.Tables[0].Rows[0]["name"].ToString());
-        race.setCode(Convert.ToChar(myDS.Tables[0].Rows[0]["code"].ToString()));
+        race.id = id;
+        race.name = myDS.Tables[0].Rows[0]["name"].ToString();
+        race.code = Convert.ToChar(myDS.Tables[0].Rows[0]["code"].ToString());
 
       }
       catch (Exception e)
@@ -168,9 +168,9 @@ namespace DAL
         for (int i = 0; i < myDS.Tables[0].Rows.Count; i++)
         {
             race = new Race();
-            race.setId(Convert.ToInt32(myDS.Tables[0].Rows[0]["id"].ToString()));
-            race.setName(myDS.Tables[0].Rows[0]["name"].ToString());
-            race.setCode(Convert.ToChar(myDS.Tables[0].Rows[0]["code"].ToString()));
+            race.id = Convert.ToInt32(myDS.Tables[0].Rows[0]["id"].ToString());
+            race.name = myDS.Tables[0].Rows[0]["name"].ToString();
+            race.code = Convert.ToChar(myDS.Tables[0].Rows[0]["code"].ToString());
             raceList.Add(race);
         }
       }

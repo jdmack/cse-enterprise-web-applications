@@ -34,42 +34,42 @@ namespace DALTest
     {
         Map map = new Map();
          
-        map.setName("map_name");
-        map.setSpawns(0);
-        map.setSize("0x0");
+        map.name = "map_name";
+        map.spawns = 0;
+        map.size = "0x0";
          
       List<string> errors = new List<string>();
       int mapID = DALMap.InsertMap(map, ref errors);
-      map.setId(mapID);
+      map.id = mapID;
 
       Assert.AreEqual(0, errors.Count);
 
-      Map verifyMap = DALMap.GetMapDetail(map.getId(), ref errors);
+      Map verifyMap = DALMap.GetMapDetail(map.id, ref errors);
 
       Assert.AreEqual(0, errors.Count);
    
-      Assert.AreEqual(map.getName(), verifyMap.getName());
-      Assert.AreEqual(map.getSpawns(), verifyMap.getSpawns());
-      Assert.AreEqual(map.getSize(), verifyMap.getSize());
+      Assert.AreEqual(map.name, verifyMap.name);
+      Assert.AreEqual(map.spawns, verifyMap.spawns);
+      Assert.AreEqual(map.size, verifyMap.size);
 
       Map map2 = new Map();
-        map2.setName("map_name2");
-        map2.setSpawns(1);
-        map2.setSize("1x1");
-        map2.setId(map.getId()); // use the existing student ID 
+        map2.name = "map_name2";
+        map2.spawns = 1;
+        map2.size = "1x1";
+        map2.id = map.id; // use the existing student ID 
 
       DALMap.UpdateMap(map2, ref errors);
 
-      verifyMap = DALMap.GetMapDetail(map2.getId(), ref errors);
+      verifyMap = DALMap.GetMapDetail(map2.id, ref errors);
       Assert.AreEqual(0, errors.Count);
-      Assert.AreEqual(map2.getId(), verifyMap.getId());
-      Assert.AreEqual(map2.getName(), verifyMap.getName());
-      Assert.AreEqual(map2.getSpawns(), verifyMap.getSpawns());
-      Assert.AreEqual(map2.getSize(), verifyMap.getSize());
+      Assert.AreEqual(map2.id, verifyMap.id);
+      Assert.AreEqual(map2.name, verifyMap.name);
+      Assert.AreEqual(map2.spawns, verifyMap.spawns);
+      Assert.AreEqual(map2.size, verifyMap.size);
 
-      DALMap.DeleteMap(map.getId(), ref errors);
+      DALMap.DeleteMap(map.id, ref errors);
 
-      Map verifyEmptyMap = DALMap.GetMapDetail(map.getId(), ref errors);
+      Map verifyEmptyMap = DALMap.GetMapDetail(map.id, ref errors);
       Assert.AreEqual(0, errors.Count);
       Assert.AreEqual(null, verifyEmptyMap);
 

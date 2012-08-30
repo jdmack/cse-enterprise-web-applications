@@ -33,38 +33,38 @@ namespace DALTest
     public void InsertRaceTest()
     {
         Race race = new Race();
-        race.setName("race_name");
-        race.setCode('R');
+        race.name = "race_name";
+        race.code = 'R';
 
       List<string> errors = new List<string>();
       int raceID = DALRace.InsertRace(race, ref errors);
-      race.setId(raceID);
+      race.id = raceID;
 
       Assert.AreEqual(0, errors.Count);
 
-      Race verifyRace = DALRace.GetRaceDetail(race.getId(), ref errors);
+      Race verifyRace = DALRace.GetRaceDetail(race.id, ref errors);
 
       Assert.AreEqual(0, errors.Count);
-      Assert.AreEqual(race.getId(), verifyRace.getId());
-      Assert.AreEqual(race.getName(), verifyRace.getName());
-      Assert.AreEqual(race.getCode(), verifyRace.getCode());
+      Assert.AreEqual(race.id, verifyRace.id);
+      Assert.AreEqual(race.name, verifyRace.name);
+      Assert.AreEqual(race.code, verifyRace.code);
 
       Race race2 = new Race();
-      race2.setName("race_name2");
-      race2.setCode('2');
-      race2.setId(race.getId()); // use the existing student ID 
+      race2.name = "race_name2";
+      race2.code = '2';
+      race2.id = race.id;
 
       DALRace.UpdateRace(race2, ref errors);
 
-      verifyRace = DALRace.GetRaceDetail(race2.getId(), ref errors);
+      verifyRace = DALRace.GetRaceDetail(race2.id, ref errors);
       Assert.AreEqual(0, errors.Count);
-      Assert.AreEqual(race2.getId(), verifyRace.getId());
-      Assert.AreEqual(race2.getName(), verifyRace.getName());
-      Assert.AreEqual(race2.getCode(), verifyRace.getCode());
+      Assert.AreEqual(race2.id, verifyRace.id);
+      Assert.AreEqual(race2.name, verifyRace.name);
+      Assert.AreEqual(race2.code, verifyRace.code);
 
-      DALRace.DeleteRace(race.getId(), ref errors);
+      DALRace.DeleteRace(race.id, ref errors);
 
-      Race verifyEmptyRace = DALRace.GetRaceDetail(race.getId(), ref errors);
+      Race verifyEmptyRace = DALRace.GetRaceDetail(race.id, ref errors);
       Assert.AreEqual(0, errors.Count);
       Assert.AreEqual(null, verifyEmptyRace);
 

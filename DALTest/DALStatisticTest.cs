@@ -33,54 +33,54 @@ namespace DALTest
     public void InsertStatisticTest()
     {
         Statistic statistic = new Statistic();
-        statistic.setPlayer(0);
-        statistic.setGame(0);
-        statistic.setAPM(0);
-        statistic.setResources(0);
-        statistic.setUnits(0);
-        statistic.setStructures(0);
+        statistic.player = 0;
+        statistic.game = 0;
+        statistic.apm = 0;
+        statistic.resources = 0;
+        statistic.units = 0;
+        statistic.structures = 0;
 
       List<string> errors = new List<string>();
       var statisticID = DALStatistic.InsertStatistic(statistic, ref errors);
-      statistic.setId(statisticID);
+      statistic.id = statisticID;
 
       Assert.AreEqual(0, errors.Count);
 
-      Statistic verifyStatistic = DALStatistic.GetStatisticDetail(statistic.getId(), ref errors);
+      Statistic verifyStatistic = DALStatistic.GetStatisticDetail(statistic.id, ref errors);
 
       Assert.AreEqual(0, errors.Count);
-      Assert.AreEqual(statistic.getId(), verifyStatistic.getId());
-      Assert.AreEqual(statistic.getPlayer(), verifyStatistic.getPlayer());
-      Assert.AreEqual(statistic.getGame(), verifyStatistic.getGame());
-      Assert.AreEqual(statistic.getAPM(), verifyStatistic.getAPM());
-      Assert.AreEqual(statistic.getResources(), verifyStatistic.getResources());
-      Assert.AreEqual(statistic.getUnits(), verifyStatistic.getUnits());
-      Assert.AreEqual(statistic.getStructures(), verifyStatistic.getStructures());
+      Assert.AreEqual(statistic.id, verifyStatistic.id);
+      Assert.AreEqual(statistic.player, verifyStatistic.player);
+      Assert.AreEqual(statistic.game, verifyStatistic.game);
+      Assert.AreEqual(statistic.apm, verifyStatistic.apm);
+      Assert.AreEqual(statistic.resources, verifyStatistic.resources);
+      Assert.AreEqual(statistic.units, verifyStatistic.units);
+      Assert.AreEqual(statistic.structures, verifyStatistic.structures);
 
       Statistic statistic2 = new Statistic();
-        statistic2.setPlayer(1);
-        statistic2.setGame(1);
-        statistic2.setAPM(1);
-        statistic2.setResources(1);
-        statistic2.setUnits(1);
-        statistic2.setStructures(1);
-        statistic2.setId(statistic.getId()); // use the existing student ID 
+      statistic.player = 1;
+      statistic.game = 1;
+      statistic.apm = 1;
+      statistic.resources = 1;
+      statistic.units = 1;
+      statistic.structures = 1;
+      statistic2.id = statistic.id;
 
       DALStatistic.UpdateStatistic(statistic2, ref errors);
 
-      verifyStatistic = DALStatistic.GetStatisticDetail(statistic2.getId(), ref errors);
+      verifyStatistic = DALStatistic.GetStatisticDetail(statistic2.id, ref errors);
       Assert.AreEqual(0, errors.Count);
-      Assert.AreEqual(statistic2.getId(), verifyStatistic.getId());
-      Assert.AreEqual(statistic2.getPlayer(), verifyStatistic.getPlayer());
-      Assert.AreEqual(statistic2.getGame(), verifyStatistic.getGame());
-      Assert.AreEqual(statistic2.getAPM(), verifyStatistic.getAPM());
-      Assert.AreEqual(statistic2.getResources(), verifyStatistic.getResources());
-      Assert.AreEqual(statistic2.getUnits(), verifyStatistic.getUnits());
-      Assert.AreEqual(statistic2.getStructures(), verifyStatistic.getStructures());
+      Assert.AreEqual(statistic2.id, verifyStatistic.id);
+      Assert.AreEqual(statistic2.player, verifyStatistic.player);
+      Assert.AreEqual(statistic2.game, verifyStatistic.game);
+      Assert.AreEqual(statistic2.apm, verifyStatistic.apm);
+      Assert.AreEqual(statistic2.resources, verifyStatistic.resources);
+      Assert.AreEqual(statistic2.units, verifyStatistic.units);
+      Assert.AreEqual(statistic2.structures, verifyStatistic.structures);
 
-      DALStatistic.DeleteStatistic(statistic.getId(), ref errors);
+      DALStatistic.DeleteStatistic(statistic.id, ref errors);
 
-      Statistic verifyEmptyStatistic = DALStatistic.GetStatisticDetail(statistic.getId(), ref errors);
+      Statistic verifyEmptyStatistic = DALStatistic.GetStatisticDetail(statistic.id, ref errors);
       Assert.AreEqual(0, errors.Count);
       Assert.AreEqual(null, verifyEmptyStatistic);
 
