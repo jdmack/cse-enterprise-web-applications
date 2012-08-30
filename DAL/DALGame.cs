@@ -180,7 +180,7 @@ namespace DAL
             return game;
         }
 
-        public static List<Game> GetGametList(ref List<string> errors)
+        public static List<Game> GetGameList(ref List<string> errors)
         {
             SqlConnection conn = new SqlConnection(connection_string);
             Game game = null;
