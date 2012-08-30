@@ -42,7 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLGame.cs" />
+    <Compile Include="BLLeague.cs" />
+    <Compile Include="BLMap.cs" />
     <Compile Include="BLPlayer.cs" />
+    <Compile Include="BLRace.cs" />
+    <Compile Include="BLStatistic.cs" />
     <Compile Include="ErrorLogging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

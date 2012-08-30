@@ -45,7 +45,11 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLLeagueTest.cs" />
+    <Compile Include="BLMapTest.cs" />
     <Compile Include="BLPlayerTest.cs" />
+    <Compile Include="BLRaceTest.cs" />
+    <Compile Include="BLStatisticTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BLGameTest.cs" />
   </ItemGroup>
