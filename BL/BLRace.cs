@@ -9,22 +9,24 @@ namespace BL
 {
     public static class BLRace
     {
-        public static void InsertRace(Race race, ref List<string> errors)
+        public static int InsertRace(Race race, ref List<string> errors)
         {
             if (race == null)
             {
                 errors.Add("Race cannot be null");
             }
-
-            if (race.name == null)
+            else
             {
-                errors.Add("Race name cannot be null");
+
+                if (race.name == null)
+                {
+                    errors.Add("Race name cannot be null");
+                }
             }
-
             if (errors.Count > 0)
-                return;
+                return 0;
 
-            DALRace.InsertRace(race, ref errors);
+            return DALRace.InsertRace(race, ref errors);
         }
 
         public static void UpdateRace(Race race, ref List<string> errors)

@@ -97,20 +97,103 @@ namespace BLTest
         [TestMethod]
         public void StatisticInsertAndSelectTest()
         {
-            Statistic statistic = new Statistic();
-            statistic.id = 1;
-            statistic.player = new Player();
-            statistic.player.id = 2;
-            statistic.game = new Game();
-            statistic.game.id = 3;
-            statistic.apm = 100;
-            statistic.resources = 2000;
-            statistic.units = 150;
-            statistic.structures = 1000;
 
-        
             List<string> errors = new List<string>();
-            BLStatistic.InsertStatistic(statistic, ref errors);
+
+            Race race = new Race();
+            race.name = "Protoss";
+            race.code = 'P';
+            int raceID = BLRace.InsertRace(race, ref errors);
+            race.id = raceID;
+
+            Race race2 = new Race();
+            race2.name = "Terran";
+            race2.code = 'T';
+            raceID = BLRace.InsertRace(race2, ref errors);
+            race2.id = raceID;
+
+            Race race3 = new Race();
+            race3.name = "Zerg";
+            race3.code = 'Z';
+            raceID = BLRace.InsertRace(race3, ref errors);
+            race3.id = raceID;
+
+            League league = new League();
+            league.name = "Diamond";
+            int leagueID = BLLeague.InsertLeague(league, ref errors);
+            league.id = leagueID;
+
+            League league2 = new League();
+            league2.name = "Platinum";
+            leagueID = BLLeague.InsertLeague(league2, ref errors);
+            league2.id = leagueID;
+
+            League league3 = new League();
+            league3.name = "Master";
+            leagueID = BLLeague.InsertLeague(league3, ref errors);
+            league3.id = leagueID;
+
+            Map map = new Map();
+            map.name = "Shakuras Plateau";
+            map.spawns = 4;
+            map.size = "120x100";
+            int mapID = BLMap.InsertMap(map, ref errors);
+            map.id = mapID;
+
+            Map map2 = new Map();
+            map2.name = "Daybreak";
+            map2.spawns = 2;
+            map2.size = "100x100";
+            mapID = BLMap.InsertMap(map, ref errors);
+            map2.id = mapID;
+
+            Player player = new Player();
+            player.name = "Niter";
+            player.code = 777;
+            player.race = race3;
+            player.league = league2;
+            int playerID = BLPlayer.InsertPlayer(player, ref errors);
+            player.id = playerID;
+
+            Player player2 = new Player();
+            player2.name = "WolfBro";
+            player2.code = 123;
+            player2.race = race;
+            player2.league = league;
+            playerID = BLPlayer.InsertPlayer(player2, ref errors);
+            player2.id = playerID;
+
+            Player player3 = new Player();
+            player3.name = "Corone";
+            player3.code = 123;
+            player3.race = race2;
+            player3.league = league3;
+            playerID = BLPlayer.InsertPlayer(player3, ref errors);
+            player3.id = playerID;
+
+            Game game = new Game();
+            game.matchup = "ZVT";
+            game.length = "23:00";
+            game.player1 = player;
+            game.player1_race = player.race;
+            game.player2 = player2;
+            game.player2_race = player2.race;
+            game.winner = game.player1;
+            game.map = new Map();
+            game.map.id = 1;
+            int gameID = BLGame.InsertGame(game, ref errors);
+            game.id = gameID;
+
+
+            Statistic statistic = new Statistic();
+            statistic.player = game.player1;
+            statistic.game = game;
+            statistic.apm = 0;
+            statistic.resources = 0;
+            statistic.units = 0;
+            statistic.structures = 0;
+        
+            statistic.id = BLStatistic.InsertStatistic(statistic, ref errors);
 
             Assert.AreEqual(0, errors.Count);
 

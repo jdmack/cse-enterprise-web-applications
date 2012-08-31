@@ -74,7 +74,8 @@ namespace BLTest
             Game game = new Game();
             game.id = -1;
             BLGame.InsertGame(game, ref errors);
-            Assert.AreEqual(1, errors.Count);
+            Assert.AreNotEqual(0, errors.Count);
+           
         }
 
         [TestMethod]
@@ -98,24 +99,90 @@ namespace BLTest
         [TestMethod]
         public void GameInsertAndSelectTest()
         {
-            Game game = new Game();
-            game.matchup = "PvZ";
-            game.time = new DateTime(2012, 8, 28, 11, 59, 59);
-            game.length = "12:12";
-            game.player1 = new Player();
-            game.player1.id = 1;
-            game.player1_race = new Race();
-            game.player1_race.id = 1;
-            game.player2 = new Player();
-            game.player2.id = 2;
-            game.player2_race = new Race();
-            game.player2_race.id = 2;
-            game.winner = game.player1;
-            game.map = new Map();
-            game.map.id = 1;
-
             List<string> errors = new List<string>();
-            BLGame.InsertGame(game, ref errors);
+
+            Race race = new Race();
+            race.name = "Protoss";
+            race.code = 'P';
+            int raceID = BLRace.InsertRace(race, ref errors);
+            race.id = raceID;
+
+            Race race2 = new Race();
+            race2.name = "Terran";
+            race2.code = 'T';
+            raceID = BLRace.InsertRace(race2, ref errors);
+            race2.id = raceID;
+
+            Race race3 = new Race();
+            race3.name = "Zerg";
+            race3.code = 'Z';
+            raceID = BLRace.InsertRace(race3, ref errors);
+            race3.id = raceID;
+
+            League league = new League();
+            league.name = "Diamond";
+            int leagueID = BLLeague.InsertLeague(league, ref errors);
+            league.id = leagueID;
+
+            League league2 = new League();
+            league2.name = "Platinum";
+            leagueID = BLLeague.InsertLeague(league2, ref errors);
+            league2.id = leagueID;
+
+            League league3 = new League();
+            league3.name = "Master";
+            leagueID = BLLeague.InsertLeague(league3, ref errors);
+            league3.id = leagueID;
+
+            Map map = new Map();
+            map.name = "Shakuras Plateau";
+            map.spawns = 4;
+            map.size = "120x100";
+            int mapID = BLMap.InsertMap(map, ref errors);
+            map.id = mapID;
+
+            Map map2 = new Map();
+            map2.name = "Daybreak";
+            map2.spawns = 2;
+            map2.size = "100x100";
+            mapID = BLMap.InsertMap(map, ref errors);
+            map2.id = mapID;
+
+            Player player = new Player();
+            player.name = "Niter";
+            player.code = 777;
+            player.race = race3;
+            player.league = league2;
+            int playerID = BLPlayer.InsertPlayer(player, ref errors);
+            player.id = playerID;
+
+            Player player2 = new Player();
+            player2.name = "WolfBro";
+            player2.code = 123;
+            player2.race = race;
+            player2.league = league;
+            playerID = BLPlayer.InsertPlayer(player2, ref errors);
+            player2.id = playerID;
+
+            Player player3 = new Player();
+            player3.name = "Corone";
+            player3.code = 123;
+            player3.race = race2;
+            player3.league = league3;
+            playerID = BLPlayer.InsertPlayer(player3, ref errors);
+            player3.id = playerID;
+
+            Game game = new Game();
+            game.matchup = "ZVT";
+            game.length = "0:23:00";
+            game.player1 = player;
+            game.player1_race = player.race;
+            game.player2 = player2;
+            game.player2_race = player2.race;
+            game.winner = game.player1;
+            game.map = map;
+
+            game.id = BLGame.InsertGame(game, ref errors);
 
             Assert.AreEqual(0, errors.Count);
 

@@ -9,7 +9,7 @@ namespace BL
 {
     public static class BLStatistic
     {
-        public static void InsertStatistic(Statistic statistic, ref List<string> errors)
+        public static int InsertStatistic(Statistic statistic, ref List<string> errors)
         {
             if (statistic == null)
             {
@@ -17,9 +17,9 @@ namespace BL
             }
 
             if (errors.Count > 0)
-                return;
+                return 0;
 
-            DALStatistic.InsertStatistic(statistic, ref errors);
+            return DALStatistic.InsertStatistic(statistic, ref errors);
         }
 
         public static void UpdateStatistic(Statistic statistic, ref List<string> errors)

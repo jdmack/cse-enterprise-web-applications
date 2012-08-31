@@ -98,12 +98,11 @@ namespace BLTest
         public void RaceInsertAndSelectTest()
         {
             Race race = new Race();
-            race.id = 1;
             race.name = "raceTest";
             race.code = 'R';
 
             List<string> errors = new List<string>();
-            BLRace.InsertRace(race, ref errors);
+            race.id = BLRace.InsertRace(race, ref errors);
 
             Assert.AreEqual(0, errors.Count);
 

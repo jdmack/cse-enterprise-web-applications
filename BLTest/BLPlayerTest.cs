@@ -74,7 +74,7 @@ namespace BLTest
             Player player = new Player();
             player.id = -1;
             BLPlayer.InsertPlayer(player, ref errors);
-            Assert.AreEqual(1, errors.Count);
+            Assert.AreNotEqual(0, errors.Count);
         }
 
         [TestMethod]
@@ -110,7 +110,7 @@ namespace BLTest
                 player.league.name = "Platinum";
 
             List<string> errors = new List<string>();
-            BLPlayer.InsertPlayer(player, ref errors);
+            player.id = BLPlayer.InsertPlayer(player, ref errors);
 
             Assert.AreEqual(0, errors.Count);
 

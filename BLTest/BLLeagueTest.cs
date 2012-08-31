@@ -72,7 +72,6 @@ namespace BLTest
             errors = new List<string>();
 
             League league = new League();
-            league.id = -1;
             BLLeague.InsertLeague(league, ref errors);
             Assert.AreEqual(1, errors.Count);
         }
@@ -102,7 +101,7 @@ namespace BLTest
             league.name = "Master";
 
             List<string> errors = new List<string>();
-            BLLeague.InsertLeague(league, ref errors);
+            league.id = BLLeague.InsertLeague(league, ref errors);
 
             Assert.AreEqual(0, errors.Count);
 

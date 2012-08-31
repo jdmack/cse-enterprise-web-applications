@@ -12,7 +12,7 @@ namespace DomainModel
         [DataMember]
         public int id = -1;
         [DataMember]
-        public string name = "";
+        public string name = null;
         [DataMember]
         public char code = ' ';
     }

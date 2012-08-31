@@ -9,36 +9,39 @@ namespace BL
 {
     public static class BLPlayer
     {
-        public static void InsertPlayer(Player player, ref List<string> errors)
+        public static int InsertPlayer(Player player, ref List<string> errors)
         {
             if (player == null)
             {
                 errors.Add("Player cannot be null");
             }
-
-            if (player.name == null)
+            else
             {
-                errors.Add("Player name cannot be null");
-            }
 
-            if (player.code < 0)
-            {
-                errors.Add("Player code cannot be negative");
-            }
+                if (player.name == null)
+                {
+                    errors.Add("Player name cannot be null");
+                }
 
-            if (player.race == null)
-            {
-                errors.Add("Player race cannot be null");
-            }
+                if (player.code < 0)
+                {
+                    errors.Add("Player code cannot be negative");
+                }
 
-            if (player.league == null)
-            {
-                errors.Add("Player leauge cannot be null");
+                if (player.race == null)
+                {
+                    errors.Add("Player race cannot be null");
+                }
+
+                if (player.league == null)
+                {
+                    errors.Add("Player leauge cannot be null");
+                }
             }
             if (errors.Count > 0)
-                return;
+                return 0;
 
-            DALPlayer.InsertPlayer(player, ref errors);
+            return DALPlayer.InsertPlayer(player, ref errors);
         }
 
         public static void UpdatePlayer(Player player, ref List<string> errors)

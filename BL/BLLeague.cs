@@ -9,21 +9,25 @@ namespace BL
 {
     public static class BLLeague
     {
-        public static void InsertLeague(League league, ref List<string> errors)
+        public static int InsertLeague(League league, ref List<string> errors)
         {
             if (league == null)
             {
                 errors.Add("League cannot be null");
             }
 
-            if (league.name == null)
+            else
             {
-                errors.Add("League name cannot be null");
+                if (league.name == null)
+                {
+                    errors.Add("League name cannot be null");
+                }
+
             }
             if (errors.Count > 0)
-                return;
+                return 0;
 
-            DALLeague.InsertLeague(league, ref errors);
+            return DALLeague.InsertLeague(league, ref errors);
         }
 
         public static void UpdateLeague(League league, ref List<string> errors)

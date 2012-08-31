@@ -73,7 +73,7 @@ namespace BLTest
 
             Map map = new Map();
             BLMap.InsertMap(map, ref errors);
-            Assert.AreEqual(1, errors.Count);
+            Assert.AreNotEqual(0, errors.Count);
         }
 
         [TestMethod]
@@ -98,13 +98,12 @@ namespace BLTest
         public void MapInsertAndSelectTest()
         {
             Map map = new Map();
-            map.id = 1;
             map.name = "test";
             map.spawns = 2;
             map.size = "10x10";
    
             List<string> errors = new List<string>();
-            BLMap.InsertMap(map, ref errors);
+            map.id = BLMap.InsertMap(map, ref errors);
 
             Assert.AreEqual(0, errors.Count);
 

@@ -9,27 +9,30 @@ namespace BL
 {
     public static class BLMap
     {
-        public static void InsertMap(Map map, ref List<string> errors)
+        public static int InsertMap(Map map, ref List<string> errors)
         {
             if (map == null)
             {
                 errors.Add("Map cannot be null");
             }
-
-            if (map.name == null)
+            else
             {
-                errors.Add("Map name cannot be null");
-            }
 
-            if (map.spawns < 0)
-            {
-                errors.Add("Map spawn cannot be negative");
+                if (map.name == null)
+                {
+                    errors.Add("Map name cannot be null");
+                }
+
+                if (map.spawns < 0)
+                {
+                    errors.Add("Map spawn cannot be negative");
+                }
             }
 
             if (errors.Count > 0)
-                return;
+                return 0;
 
-            DALMap.InsertMap(map, ref errors);
+            return DALMap.InsertMap(map, ref errors);
         }
 
         public static void UpdateMap(Map map, ref List<string> errors)
