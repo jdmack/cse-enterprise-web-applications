@@ -98,18 +98,23 @@ namespace BLTest
         [TestMethod]
         public void PlayerInsertAndSelectTest()
         {
+            List<string> errors = new List<string>();
+
+            Race race3 = new Race();
+            race3.name = "Zerg";
+            race3.code = 'Z';
+            race3.id = BLRace.InsertRace(race3, ref errors);
+
+            League league2 = new League();
+            league2.name = "Platinum";
+            league2.id = BLLeague.InsertLeague(league2, ref errors);
+
             Player player = new Player();
             player.name = "Niter";
             player.code = 777;
-            player.race = new Race();
-                player.race.id = 3;
-                player.race.name = "Zerg";
-                player.race.code = 'Z';
-            player.league = new League();
-                player.league.id = 3;
-                player.league.name = "Platinum";
+            player.race = race3;
+            player.league = league2;
 
-            List<string> errors = new List<string>();
             player.id = BLPlayer.InsertPlayer(player, ref errors);
 
             Assert.AreEqual(0, errors.Count);

@@ -26,7 +26,7 @@ namespace BL
                 // regex
                 Match match = Regex.Match(game.length, @"[0-9]*:[0-9]2");
 
-                /*if (!match.Success)
+               /* if (!match.Success)
                 {
                     errors.Add("Game length must be 00:00");
                 }*/
