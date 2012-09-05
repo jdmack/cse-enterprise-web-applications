@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MVC3.Models.GameInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            player1Name
+        </th>
+        <th>
+            player2Name
+        </th>
+        <th>
+            matchup
+        </th>
+        <th>
+            downloadCount
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.player1Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.player2Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.matchup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.downloadCount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
