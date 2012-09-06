@@ -24,7 +24,10 @@ namespace BL
                 }
             }
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return 0;
+            }
 
             return DALRace.InsertRace(race, ref errors);
         }
@@ -41,7 +44,10 @@ namespace BL
                 errors.Add("Race name cannot be null");
             }
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return;
+            }
 
             DALRace.UpdateRace(race, ref errors);
         }
@@ -59,7 +65,10 @@ namespace BL
             }
 
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return null;
+            }
 
             return (DALRace.GetRaceDetail(id, ref errors));
         }
@@ -77,7 +86,10 @@ namespace BL
             }
 
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return;
+            }
 
             DALRace.DeleteRace(id, ref errors);
         }

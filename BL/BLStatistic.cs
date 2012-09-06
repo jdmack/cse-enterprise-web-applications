@@ -17,7 +17,10 @@ namespace BL
             }
 
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return 0;
+            }
 
             return DALStatistic.InsertStatistic(statistic, ref errors);
         }
@@ -30,7 +33,10 @@ namespace BL
             }
 
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return;
+            }
 
             DALStatistic.UpdateStatistic(statistic, ref errors);
         }
@@ -48,7 +54,10 @@ namespace BL
             }
 
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return null;
+            }
 
             return (DALStatistic.GetStatisticDetail(id, ref errors));
         }
@@ -66,7 +75,10 @@ namespace BL
             }
 
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return;
+            }
 
             DALStatistic.DeleteStatistic(id, ref errors);
         }

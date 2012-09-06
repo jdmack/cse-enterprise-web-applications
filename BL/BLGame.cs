@@ -24,12 +24,12 @@ namespace BL
                 }
 
                 // regex
-                Match match = Regex.Match(game.length, @"[0-9]*:[0-9]2");
+                Match match = Regex.Match(game.length, @"[0-9]*:[0-9][0-9]:[0-9][0-9]");
 
-               /* if (!match.Success)
+                if (!match.Success)
                 {
                     errors.Add("Game length must be 00:00");
-                }*/
+                }
 
                 if (game.player1 == null)
                 {
@@ -63,7 +63,10 @@ namespace BL
             }
 
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return 0;
+            }
 
             return DALGame.InsertGame(game, ref errors);
         }
@@ -119,7 +122,10 @@ namespace BL
             }
 
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return;
+            }
 
             DALGame.UpdateGame(game, ref errors);
         }
@@ -135,9 +141,12 @@ namespace BL
             {
                 errors.Add("The game ID cannot be negative");
             }
-             
+
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return null;
+            }
 
             return (DALGame.GetGameDetail(id, ref errors));
         }
@@ -155,8 +164,11 @@ namespace BL
             }
 
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return;
-
+            }
+            
             DALGame.DeleteGame(id, ref errors);
         }
 

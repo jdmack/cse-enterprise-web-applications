@@ -25,7 +25,10 @@ namespace BL
 
             }
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return 0;
+            }
 
             return DALLeague.InsertLeague(league, ref errors);
         }
@@ -43,7 +46,10 @@ namespace BL
             }
 
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return;
+            }
 
             DALLeague.UpdateLeague(league, ref errors);
         }
@@ -61,7 +67,10 @@ namespace BL
             }
 
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return null;
+            }
 
             return (DALLeague.GetLeagueDetail(id, ref errors));
         }
@@ -79,7 +88,10 @@ namespace BL
             }
 
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return;
+            }
 
             DALLeague.DeleteLeague(id, ref errors);
         }

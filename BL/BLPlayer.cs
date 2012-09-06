@@ -39,7 +39,10 @@ namespace BL
                 }
             }
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return 0;
+            }
 
             return DALPlayer.InsertPlayer(player, ref errors);
         }
@@ -70,7 +73,10 @@ namespace BL
                 errors.Add("Player leauge cannot be null");
             }
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return;
+            }
 
             DALPlayer.UpdatePlayer(player, ref errors);
         }
@@ -88,7 +94,10 @@ namespace BL
             }
 
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return null;
+            }
 
             return (DALPlayer.GetPlayerDetail(id, ref errors));
         }
@@ -106,7 +115,10 @@ namespace BL
             }
 
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return;
+            }
 
             DALPlayer.DeletePlayer(id, ref errors);
         }

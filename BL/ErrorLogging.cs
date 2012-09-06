@@ -25,9 +25,10 @@ namespace BL
         public void LogError(List<string> errorList)
         {
             // 136 Students TODO: Write to local file system somewhere
-            StreamWriter writer = new StreamWriter("c:\\errorlog.txt");
+            StreamWriter writer = new StreamWriter("c:\\errorlog.txt",true);
             foreach (string error in errorList)
             {
+                Console.WriteLine(error);
                 writer.WriteLine(error);
             }
             writer.Close();

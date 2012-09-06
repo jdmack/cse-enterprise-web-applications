@@ -30,7 +30,10 @@ namespace BL
             }
 
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return 0;
+            }
 
             return DALMap.InsertMap(map, ref errors);
         }
@@ -53,7 +56,10 @@ namespace BL
             }
 
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return;
+            }
 
             DALMap.UpdateMap(map, ref errors);
         }
@@ -71,7 +77,10 @@ namespace BL
             }
 
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return null;
+            }
 
             return (DALMap.GetMapDetail(id, ref errors));
         }
@@ -89,7 +98,10 @@ namespace BL
             }
 
             if (errors.Count > 0)
+            {
+                AsynchLog.LogNow(errors);
                 return;
+            }
 
             DALMap.DeleteMap(id, ref errors);
         }

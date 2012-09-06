@@ -173,7 +173,7 @@ namespace BLTest
 
             Game game = new Game();
             game.matchup = "ZVT";
-            game.length = "23:00";
+            game.length = "0:23:00";
             game.player1 = player;
             game.player1_race = player.race;
             game.player2 = player2;
