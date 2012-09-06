@@ -1,0 +1,90 @@
+﻿@model MVC3.Models.PLGame
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PLGame</legend>
+
+    <div class="display-label">player1Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player1Name)
+    </div>
+
+    <div class="display-label">player1Race</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player1Race)
+    </div>
+
+    <div class="display-label">player1Code</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player1Code)
+    </div>
+
+    <div class="display-label">player1League</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player1League)
+    </div>
+
+    <div class="display-label">player2Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player2Name)
+    </div>
+
+    <div class="display-label">player2Race</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player2Race)
+    </div>
+
+    <div class="display-label">player2Code</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player2Code)
+    </div>
+
+    <div class="display-label">matchup</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.matchup)
+    </div>
+
+    <div class="display-label">length</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.length)
+    </div>
+
+    <div class="display-label">time</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.time)
+    </div>
+
+    <div class="display-label">winnerName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.winnerName)
+    </div>
+
+    <div class="display-label">map</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.map)
+    </div>
+
+    <div class="display-label">spawns</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.spawns)
+    </div>
+
+    <div class="display-label">size</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.size)
+    </div>
+
+    <div class="display-label">downloadCount</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.downloadCount)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

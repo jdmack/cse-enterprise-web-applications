@@ -98,7 +98,7 @@ namespace MVC3.Models
 
             SLGame.ISLGame SLGame = new SLGame.SLGameClient();
             string[] errors = new string[0];
-            g.id = SLGame.InsertGame(newGame, ref errors);
+            SLGame.InsertGame(newGame, ref errors);
         }
 
         public static void UpdateGame(PLGame g)
@@ -138,7 +138,7 @@ namespace MVC3.Models
             PLGame.winnerName = game.winner.name;
             //PLGame.downloadCount = game.downloadCount.ToString();
             PLGame.map = game.map.name;
-            PLGame.spawns = game.map.ToString();
+            PLGame.spawns = game.map.spawns.ToString();
             PLGame.size = game.map.size;
 
             return PLGame;

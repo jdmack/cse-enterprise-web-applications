@@ -19,12 +19,12 @@ namespace MVC3.Controllers
             ViewData["breadCrumData"] = "Game List";
             return View("Index",myGames);
         }
-        /*
+        
         public ActionResult Details(int id)
         {
-            GameInfo g = GameClientService.GetGameDetail(id);
+            PLGame g = GameClientService.GetGameDetail(id);
             return View("Details", g);
         }
-         */
+         
     }
 }

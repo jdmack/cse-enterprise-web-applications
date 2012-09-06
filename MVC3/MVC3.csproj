@@ -199,6 +199,7 @@
     <None Include="Service References\SLMap\SLMap3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\Game\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -208,9 +209,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Game\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Game\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
