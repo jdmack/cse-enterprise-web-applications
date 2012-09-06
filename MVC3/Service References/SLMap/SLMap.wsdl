@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SLMap" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:60162/SLMap.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:60162/SLMap.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:60162/SLMap.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:60162/SLMap.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DomainModel" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISLMap_GetMap_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMap" />
+  </wsdl:message>
+  <wsdl:message name="ISLMap_GetMap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMapResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISLMap_InsertMap_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMap" />
+  </wsdl:message>
+  <wsdl:message name="ISLMap_InsertMap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMapResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISLMap_UpdateMap_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMap" />
+  </wsdl:message>
+  <wsdl:message name="ISLMap_UpdateMap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMapResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISLMap_DeleteMap_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMap" />
+  </wsdl:message>
+  <wsdl:message name="ISLMap_DeleteMap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMapResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISLMap_GetMapList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMapList" />
+  </wsdl:message>
+  <wsdl:message name="ISLMap_GetMapList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMapListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISLMap">
+    <wsdl:operation name="GetMap">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLMap/GetMap" message="tns:ISLMap_GetMap_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLMap/GetMapResponse" message="tns:ISLMap_GetMap_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertMap">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLMap/InsertMap" message="tns:ISLMap_InsertMap_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLMap/InsertMapResponse" message="tns:ISLMap_InsertMap_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMap">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLMap/UpdateMap" message="tns:ISLMap_UpdateMap_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLMap/UpdateMapResponse" message="tns:ISLMap_UpdateMap_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMap">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLMap/DeleteMap" message="tns:ISLMap_DeleteMap_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLMap/DeleteMapResponse" message="tns:ISLMap_DeleteMap_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMapList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLMap/GetMapList" message="tns:ISLMap_GetMapList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLMap/GetMapListResponse" message="tns:ISLMap_GetMapList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISLMap" type="tns:ISLMap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMap">
+      <soap:operation soapAction="http://tempuri.org/ISLMap/GetMap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertMap">
+      <soap:operation soapAction="http://tempuri.org/ISLMap/InsertMap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMap">
+      <soap:operation soapAction="http://tempuri.org/ISLMap/UpdateMap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMap">
+      <soap:operation soapAction="http://tempuri.org/ISLMap/DeleteMap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMapList">
+      <soap:operation soapAction="http://tempuri.org/ISLMap/GetMapList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SLMap">
+    <wsdl:port name="BasicHttpBinding_ISLMap" binding="tns:BasicHttpBinding_ISLMap">
+      <soap:address location="http://localhost:60162/SLMap.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4e85da97-25ea-44af-89e6-f3bfaefa21bb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:60162/SLMap.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SLMap.disco" MetadataType="Disco" ID="41331c89-aea9-4720-84ed-0773006cb292" SourceId="1" SourceUrl="http://localhost:60162/SLMap.svc?disco" />
+    <MetadataFile FileName="SLMap.xsd" MetadataType="Schema" ID="4e6f2523-22c1-449e-9abc-2e1f2f8cc387" SourceId="1" SourceUrl="http://localhost:60162/SLMap.svc?xsd=xsd3" />
+    <MetadataFile FileName="SLMap1.xsd" MetadataType="Schema" ID="8c15daed-7827-41c9-ac3a-5c521c277444" SourceId="1" SourceUrl="http://localhost:60162/SLMap.svc?xsd=xsd2" />
+    <MetadataFile FileName="SLMap2.xsd" MetadataType="Schema" ID="94d4690d-61c9-4370-a6bd-15cfc6dc8f9b" SourceId="1" SourceUrl="http://localhost:60162/SLMap.svc?xsd=xsd1" />
+    <MetadataFile FileName="SLMap3.xsd" MetadataType="Schema" ID="53c5487f-1de2-4046-9721-6909a43ca53c" SourceId="1" SourceUrl="http://localhost:60162/SLMap.svc?xsd=xsd0" />
+    <MetadataFile FileName="SLMap.wsdl" MetadataType="Wsdl" ID="a9f306e7-1a1b-4ffc-a70c-ac1106f0fa81" SourceId="1" SourceUrl="http://localhost:60162/SLMap.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

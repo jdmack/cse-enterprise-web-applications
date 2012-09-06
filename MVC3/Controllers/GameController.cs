@@ -11,18 +11,20 @@ namespace MVC3.Controllers
     {
         //
         // GET: /Game/
-        GameList games = new GameList();
+        //GameList games = new GameList();
 
         public ActionResult Index()
         {
-            List<GameInfo> myGames = games.GetGameList();
+            List<PLGame> myGames = GameClientService.GetGameList();
+            ViewData["breadCrumData"] = "Game List";
             return View("Index",myGames);
         }
-
+        /*
         public ActionResult Details(int id)
         {
-            GameInfo g = games.GetGameDetail(id);
+            GameInfo g = GameClientService.GetGameDetail(id);
             return View("Details", g);
         }
+         */
     }
 }
