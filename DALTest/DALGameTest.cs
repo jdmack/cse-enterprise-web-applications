@@ -148,8 +148,7 @@ namespace DALTest
       game.player2 = player2;
       game.player2_race = player2.race;
       game.winner = game.player1;
-      game.map = new Map();
-      game.map.id = 1;
+      game.map = map;
 
       int gameID = DALGame.InsertGame(game, ref errors);
       game.id = gameID;
@@ -174,8 +173,7 @@ namespace DALTest
       game2.player2 = player3;
       game2.player2_race = player3.race;
       game2.winner = game.player2;
-      game2.map = new Map();
-      game2.map.id = 2;
+      game2.map = map2;
       game2.id = game.id;
 
       DALGame.UpdateGame(game2, ref errors);
@@ -188,6 +186,8 @@ namespace DALTest
       Assert.AreEqual(game2.player1_race.id, verifyGame.player1_race.id);
       Assert.AreEqual(game2.player2.id, verifyGame.player2.id);
       Assert.AreEqual(game2.player2_race.id, verifyGame.player2_race.id);
+
+      List<Game> GameList = DALGame.GetGameList(ref errors);
 
       DALGame.DeleteGame(game.id, ref errors);
       DALPlayer.DeletePlayer(player.id, ref errors);
