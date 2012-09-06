@@ -9,26 +9,121 @@
 //------------------------------------------------------------------------------
 
 namespace MVC3.SLMap {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Map", Namespace="http://schemas.datacontract.org/2004/07/DomainModel")]
+    [System.SerializableAttribute()]
+    public partial class Map : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string sizeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int spawnsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nameField, value) != true)) {
+                    this.nameField = value;
+                    this.RaisePropertyChanged("name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string size {
+            get {
+                return this.sizeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.sizeField, value) != true)) {
+                    this.sizeField = value;
+                    this.RaisePropertyChanged("size");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int spawns {
+            get {
+                return this.spawnsField;
+            }
+            set {
+                if ((this.spawnsField.Equals(value) != true)) {
+                    this.spawnsField = value;
+                    this.RaisePropertyChanged("spawns");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SLMap.ISLMap")]
     public interface ISLMap {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLMap/GetMap", ReplyAction="http://tempuri.org/ISLMap/GetMapResponse")]
-        DomainModel.Map GetMap(int id, ref string[] errors);
+        MVC3.SLMap.Map GetMap(int id, ref string[] errors);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLMap/InsertMap", ReplyAction="http://tempuri.org/ISLMap/InsertMapResponse")]
-        void InsertMap(DomainModel.Map map, ref string[] errors);
+        void InsertMap(MVC3.SLMap.Map map, ref string[] errors);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLMap/UpdateMap", ReplyAction="http://tempuri.org/ISLMap/UpdateMapResponse")]
-        void UpdateMap(DomainModel.Map map, ref string[] errors);
+        void UpdateMap(MVC3.SLMap.Map map, ref string[] errors);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLMap/DeleteMap", ReplyAction="http://tempuri.org/ISLMap/DeleteMapResponse")]
         void DeleteMap(int id, ref string[] errors);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLMap/GetMapList", ReplyAction="http://tempuri.org/ISLMap/GetMapListResponse")]
-        DomainModel.Map[] GetMapList(ref string[] errors);
+        MVC3.SLMap.Map[] GetMapList(ref string[] errors);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -58,15 +153,15 @@ namespace MVC3.SLMap {
                 base(binding, remoteAddress) {
         }
         
-        public DomainModel.Map GetMap(int id, ref string[] errors) {
+        public MVC3.SLMap.Map GetMap(int id, ref string[] errors) {
             return base.Channel.GetMap(id, ref errors);
         }
         
-        public void InsertMap(DomainModel.Map map, ref string[] errors) {
+        public void InsertMap(MVC3.SLMap.Map map, ref string[] errors) {
             base.Channel.InsertMap(map, ref errors);
         }
         
-        public void UpdateMap(DomainModel.Map map, ref string[] errors) {
+        public void UpdateMap(MVC3.SLMap.Map map, ref string[] errors) {
             base.Channel.UpdateMap(map, ref errors);
         }
         
@@ -74,7 +169,7 @@ namespace MVC3.SLMap {
             base.Channel.DeleteMap(id, ref errors);
         }
         
-        public DomainModel.Map[] GetMapList(ref string[] errors) {
+        public MVC3.SLMap.Map[] GetMapList(ref string[] errors) {
             return base.Channel.GetMapList(ref errors);
         }
     }

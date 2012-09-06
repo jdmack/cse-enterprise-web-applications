@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using DomainModel;
 
 namespace MVC3.Models
 {
@@ -146,6 +145,7 @@ namespace MVC3.Models
         private static SLGame.Game DTO_to_SL(PLGame game)
         {
             SLGame.Game SLGame = new MVC3.SLGame.Game();
+            SLMap.Map SLMap = new MVC3.SLMap.Map();
             SLGame.id = game.id;
             SLGame.length = game.length;
             //SLGame.map =  ??
