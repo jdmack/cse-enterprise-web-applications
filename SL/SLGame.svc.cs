@@ -17,9 +17,9 @@ namespace SL
             return BLGame.GetGame(id, ref errors);
         }
 
-        public void InsertGame(Game game, ref List<string> errors)
+        public int InsertGame(Game game, ref List<string> errors)
         {
-            BLGame.InsertGame(game, ref errors);
+            return BLGame.InsertGame(game, ref errors);
         }
 
         public void UpdateGame(Game game, ref List<string> errors)

@@ -18,7 +18,7 @@ namespace SL
         Game GetGame(int id, ref List<string> errors);
 
         [OperationContract]
-        void InsertGame(Game game, ref List<string> errors);
+        int InsertGame(Game game, ref List<string> errors);
 
         [OperationContract]
         void UpdateGame(Game game, ref List<string> errors);

@@ -20,6 +20,12 @@ namespace DAL
             {
                 string strSQL = "spInsertGameInfo";
 
+                game.player1.id = DALPlayer.InsertPlayer(game.player1, ref errors);
+                game.player1_race = game.player1.race;
+                game.player2.id = DALPlayer.InsertPlayer(game.player2, ref errors);
+                game.player2_race = game.player2.race;
+                game.map.id = DALMap.InsertMap(game.map, ref errors);
+               
                 SqlDataAdapter mySA = new SqlDataAdapter(strSQL, conn);
                 mySA.SelectCommand.CommandType = CommandType.StoredProcedure;
                 mySA.SelectCommand.Parameters.Add(new SqlParameter("@matchup", SqlDbType.Char, 3));
