@@ -171,7 +171,7 @@ namespace DAL
                 game.player2 = DALPlayer.GetPlayerDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["player2"].ToString()), ref errors);
                 game.player2_race = DALRace.GetRaceDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["player2_race"].ToString()), ref errors);
                 game.winner = DALPlayer.GetPlayerDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["winner"].ToString()), ref errors);
-                game.map = DALMap.GetMapDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["map"].ToString()), ref errors);
+                game.map = DALMap.GetMapDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["map"].ToString()), ref errors);         
             }
             catch (Exception e)
             {

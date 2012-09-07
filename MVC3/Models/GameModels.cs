@@ -179,7 +179,7 @@ namespace MVC3.Models
             SLPlayer1.name = game.player1Name;
            // SLPlayer1.league = SLLeague1;
             //SLPlayer1.race = SLRace1;
-
+            
 
 
             SLGame.Game SLGame = new MVC3.SLGame.Game();

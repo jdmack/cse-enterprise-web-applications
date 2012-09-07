@@ -67,6 +67,31 @@ namespace BL
                 AsynchLog.LogNow(errors);
                 return 0;
             }
+            
+            int player1_race = DALRace.InsertRace(game.player1_race, ref errors);
+            game.player1.race.id = player1_race;
+            game.player1_race.id = player1_race;
+            int player1_league = DALLeague.InsertLeague(game.player1.league, ref errors);
+            game.player1.league.id = player1_league;
+            int player1 = DALPlayer.InsertPlayer(game.player1, ref errors);
+            
+            int player2_race = DALRace.InsertRace(game.player2_race, ref errors);
+            game.player2.race.id = player2_race;
+            game.player2_race.id = player2_race;
+            int player2_league = DALLeague.InsertLeague(game.player2.league, ref errors);
+            game.player2.league.id = player2_league;
+            int player2 = DALPlayer.InsertPlayer(game.player2, ref errors);
+
+            if (game.winner.name == game.player1.name && game.winner.code == game.player1.code)
+            {
+                game.winner.id = player1;
+            }
+            else
+            {
+                game.winner.id = player2;
+            }
+
+            int map = DALMap.InsertMap(game.map, ref errors);        
 
             return DALGame.InsertGame(game, ref errors);
         }
@@ -127,6 +152,14 @@ namespace BL
                 return;
             }
 
+            DALRace.UpdateRace(game.player1_race, ref errors);            
+            DALLeague.UpdateLeague(game.player1.league, ref errors);            
+            DALPlayer.UpdatePlayer(game.player1, ref errors);
+            DALRace.UpdateRace(game.player2_race, ref errors);
+            DALLeague.UpdateLeague(game.player2.league, ref errors);
+            DALPlayer.UpdatePlayer(game.player2, ref errors);
+            DALMap.UpdateMap(game.map, ref errors);
+
             DALGame.UpdateGame(game, ref errors);
         }
 
@@ -151,14 +184,14 @@ namespace BL
             return (DALGame.GetGameDetail(id, ref errors));
         }
 
-        public static void DeleteGame(int id, ref List<string> errors)
+        public static void DeleteGame(Game game, ref List<string> errors)
         {
-            if (id == null)
+            if (game.id == null)
             {
                 errors.Add("Invalid game ID");
             }
 
-            if (Convert.ToInt32(id) < 0)
+            if (Convert.ToInt32(game.id) < 0)
             {
                 errors.Add("The game ID cannot be negative");
             }
@@ -169,7 +202,14 @@ namespace BL
                 return;
             }
             
-            DALGame.DeleteGame(id, ref errors);
+            DALRace.DeleteRace(game.player1_race.id, ref errors);
+            DALLeague.DeleteLeague(game.player1.league.id, ref errors);
+            DALPlayer.DeletePlayer(game.player1.id, ref errors);
+            DALRace.DeleteRace(game.player2_race.id, ref errors);
+            DALLeague.DeleteLeague(game.player2.league.id, ref errors);
+            DALPlayer.DeletePlayer(game.player2.id, ref errors);
+            DALMap.DeleteMap(game.map.id, ref errors);
+            DALGame.DeleteGame(game.id, ref errors);
         }
 
         public static List<Game> GetGameList(ref List<string> errors)

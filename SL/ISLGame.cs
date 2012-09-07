@@ -24,7 +24,7 @@ namespace SL
         void UpdateGame(Game game, ref List<string> errors);
 
         [OperationContract]
-        void DeleteGame(int id, ref List<string> errors);
+        void DeleteGame(Game game, ref List<string> errors);
 
         [OperationContract]
         List<Game> GetGameList(ref List<string> errors);
