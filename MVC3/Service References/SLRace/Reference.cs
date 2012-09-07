@@ -9,26 +9,105 @@
 //------------------------------------------------------------------------------
 
 namespace MVC3.SLRace {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Race", Namespace="http://schemas.datacontract.org/2004/07/DomainModel")]
+    [System.SerializableAttribute()]
+    public partial class Race : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private char codeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public char code {
+            get {
+                return this.codeField;
+            }
+            set {
+                if ((this.codeField.Equals(value) != true)) {
+                    this.codeField = value;
+                    this.RaisePropertyChanged("code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nameField, value) != true)) {
+                    this.nameField = value;
+                    this.RaisePropertyChanged("name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SLRace.ISLRace")]
     public interface ISLRace {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLRace/GetRace", ReplyAction="http://tempuri.org/ISLRace/GetRaceResponse")]
-        DomainModel.Race GetRace(int id, ref string[] errors);
+        MVC3.SLRace.Race GetRace(int id, ref string[] errors);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLRace/InsertRace", ReplyAction="http://tempuri.org/ISLRace/InsertRaceResponse")]
-        void InsertRace(DomainModel.Race race, ref string[] errors);
+        void InsertRace(MVC3.SLRace.Race race, ref string[] errors);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLRace/UpdateRace", ReplyAction="http://tempuri.org/ISLRace/UpdateRaceResponse")]
-        void UpdateRace(DomainModel.Race race, ref string[] errors);
+        void UpdateRace(MVC3.SLRace.Race race, ref string[] errors);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLRace/DeleteRace", ReplyAction="http://tempuri.org/ISLRace/DeleteRaceResponse")]
         void DeleteRace(int id, ref string[] errors);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLRace/GetRaceList", ReplyAction="http://tempuri.org/ISLRace/GetRaceListResponse")]
-        DomainModel.Race[] GetRaceList(ref string[] errors);
+        MVC3.SLRace.Race[] GetRaceList(ref string[] errors);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -58,15 +137,15 @@ namespace MVC3.SLRace {
                 base(binding, remoteAddress) {
         }
         
-        public DomainModel.Race GetRace(int id, ref string[] errors) {
+        public MVC3.SLRace.Race GetRace(int id, ref string[] errors) {
             return base.Channel.GetRace(id, ref errors);
         }
         
-        public void InsertRace(DomainModel.Race race, ref string[] errors) {
+        public void InsertRace(MVC3.SLRace.Race race, ref string[] errors) {
             base.Channel.InsertRace(race, ref errors);
         }
         
-        public void UpdateRace(DomainModel.Race race, ref string[] errors) {
+        public void UpdateRace(MVC3.SLRace.Race race, ref string[] errors) {
             base.Channel.UpdateRace(race, ref errors);
         }
         
@@ -74,7 +153,7 @@ namespace MVC3.SLRace {
             base.Channel.DeleteRace(id, ref errors);
         }
         
-        public DomainModel.Race[] GetRaceList(ref string[] errors) {
+        public MVC3.SLRace.Race[] GetRaceList(ref string[] errors) {
             return base.Channel.GetRaceList(ref errors);
         }
     }

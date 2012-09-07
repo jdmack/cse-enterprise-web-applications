@@ -23,6 +23,9 @@ namespace MVC3.SLGame {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int downloadCountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int idField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -65,6 +68,19 @@ namespace MVC3.SLGame {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int downloadCount {
+            get {
+                return this.downloadCountField;
+            }
+            set {
+                if ((this.downloadCountField.Equals(value) != true)) {
+                    this.downloadCountField = value;
+                    this.RaisePropertyChanged("downloadCount");
+                }
             }
         }
         
@@ -723,7 +739,7 @@ namespace MVC3.SLGame {
         MVC3.SLGame.Game GetGame(int id, ref string[] errors);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLGame/InsertGame", ReplyAction="http://tempuri.org/ISLGame/InsertGameResponse")]
-        void InsertGame(MVC3.SLGame.Game game, ref string[] errors);
+        int InsertGame(MVC3.SLGame.Game game, ref string[] errors);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLGame/UpdateGame", ReplyAction="http://tempuri.org/ISLGame/UpdateGameResponse")]
         void UpdateGame(MVC3.SLGame.Game game, ref string[] errors);
@@ -766,8 +782,8 @@ namespace MVC3.SLGame {
             return base.Channel.GetGame(id, ref errors);
         }
         
-        public void InsertGame(MVC3.SLGame.Game game, ref string[] errors) {
-            base.Channel.InsertGame(game, ref errors);
+        public int InsertGame(MVC3.SLGame.Game game, ref string[] errors) {
+            return base.Channel.InsertGame(game, ref errors);
         }
         
         public void UpdateGame(MVC3.SLGame.Game game, ref string[] errors) {

@@ -41,6 +41,10 @@ namespace MVC3.Models
         public string player2Name { get; set; }
 
         [Required]
+        [DisplayName("Player 2 Code")]
+        public string player2Code { get; set; }
+
+        [Required]
         [DisplayName("Player 2 Race")]
         public string player2Race { get; set; }
 
@@ -49,8 +53,8 @@ namespace MVC3.Models
         public string player2RaceCode { get; set; }
 
         [Required]
-        [DisplayName("Player 2 Code")]
-        public string player2Code { get; set; }
+        [DisplayName("Player 2 League")]
+        public string player2League { get; set; }
 
         [Required]
         [DisplayName("Match Up")]
@@ -154,32 +158,32 @@ namespace MVC3.Models
 
         private static SLGame.Game DTO_to_SL(PLGame game)
         {
-            SLMap.Map SLMap = new MVC3.SLMap.ISMap();
+            SLMap.Map SLMap = new MVC3.SLMap.Map();
             SLMap.name = game.map;
             SLMap.size = game.size;
-            SLMap.spawns = game.spawns;
+            SLMap.spawns = Convert.ToInt32(game.spawns);
 
-            SLLeague.League SLLeague1 = new MVC3.SLLeague.ISLLeague();
+            SLLeague.League SLLeague1 = new MVC3.SLLeague.League();
             SLLeague1.name = game.player1League;
-            SLLeague.League SLLeague2 = new MVC3.SLLeague.ISLLeague();
+            SLLeague.League SLLeague2 = new MVC3.SLLeague.League();
             SLLeague1.name = game.player2League;
 
-            SLRace.Race SLRace1 = new MVC3.SLRace.ISRace();
+            SLRace.Race SLRace1 = new MVC3.SLRace.Race();
             SLRace1.name = game.player1Race;
-            SLRace1.code = game.player1RaceCode;
-            SLRace.Race SLRace2 = new MVC3.SLRace.ISRace();
+            SLRace1.code = Convert.ToChar(game.player1RaceCode);
+            SLRace.Race SLRace2 = new MVC3.SLRace.Race();
             SLRace2.name = game.player2Race;
-            SLRace2.code = game.player2RaceCode;
+            SLRace2.code = Convert.ToChar(game.player2RaceCode);
 
-            SLPlayer.Player SLPlayer1 = new MVC3.SLPlayer.ISPlayer();
+            SLPlayer.Player SLPlayer1 = new MVC3.SLPlayer.Player();
             SLPlayer1.name = game.player1Name;
-            SLPlayer1.league = SLLeague1;
-            SLPlayer1.race = SLRace1;
+           // SLPlayer1.league = SLLeague1;
+            //SLPlayer1.race = SLRace1;
 
 
 
             SLGame.Game SLGame = new MVC3.SLGame.Game();
-            SLMap.Map SLMap = new MVC3.SLMap.Map();
+          
             SLGame.id = game.id;
             SLGame.length = game.length;
             //SLGame.map =  ??

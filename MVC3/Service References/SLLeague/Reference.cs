@@ -9,26 +9,89 @@
 //------------------------------------------------------------------------------
 
 namespace MVC3.SLLeague {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="League", Namespace="http://schemas.datacontract.org/2004/07/DomainModel")]
+    [System.SerializableAttribute()]
+    public partial class League : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nameField, value) != true)) {
+                    this.nameField = value;
+                    this.RaisePropertyChanged("name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SLLeague.ISLLeague")]
     public interface ISLLeague {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLLeague/GetLeague", ReplyAction="http://tempuri.org/ISLLeague/GetLeagueResponse")]
-        DomainModel.League GetLeague(int id, ref string[] errors);
+        MVC3.SLLeague.League GetLeague(int id, ref string[] errors);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLLeague/InsertLeague", ReplyAction="http://tempuri.org/ISLLeague/InsertLeagueResponse")]
-        void InsertLeague(DomainModel.League league, ref string[] errors);
+        void InsertLeague(MVC3.SLLeague.League league, ref string[] errors);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLLeague/UpdateLeague", ReplyAction="http://tempuri.org/ISLLeague/UpdateLeagueResponse")]
-        void UpdateLeague(DomainModel.League league, ref string[] errors);
+        void UpdateLeague(MVC3.SLLeague.League league, ref string[] errors);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLLeague/DeleteLeague", ReplyAction="http://tempuri.org/ISLLeague/DeleteLeagueResponse")]
         void DeleteLeague(int id, ref string[] errors);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLLeague/GetLeagueList", ReplyAction="http://tempuri.org/ISLLeague/GetLeagueListResponse")]
-        DomainModel.League[] GetLeagueList(ref string[] errors);
+        MVC3.SLLeague.League[] GetLeagueList(ref string[] errors);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -58,15 +121,15 @@ namespace MVC3.SLLeague {
                 base(binding, remoteAddress) {
         }
         
-        public DomainModel.League GetLeague(int id, ref string[] errors) {
+        public MVC3.SLLeague.League GetLeague(int id, ref string[] errors) {
             return base.Channel.GetLeague(id, ref errors);
         }
         
-        public void InsertLeague(DomainModel.League league, ref string[] errors) {
+        public void InsertLeague(MVC3.SLLeague.League league, ref string[] errors) {
             base.Channel.InsertLeague(league, ref errors);
         }
         
-        public void UpdateLeague(DomainModel.League league, ref string[] errors) {
+        public void UpdateLeague(MVC3.SLLeague.League league, ref string[] errors) {
             base.Channel.UpdateLeague(league, ref errors);
         }
         
@@ -74,7 +137,7 @@ namespace MVC3.SLLeague {
             base.Channel.DeleteLeague(id, ref errors);
         }
         
-        public DomainModel.League[] GetLeagueList(ref string[] errors) {
+        public MVC3.SLLeague.League[] GetLeagueList(ref string[] errors) {
             return base.Channel.GetLeagueList(ref errors);
         }
     }
