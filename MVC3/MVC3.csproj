@@ -81,7 +81,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\SLLeague\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\SLMap\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SLPlayer\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SLRace\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -126,7 +141,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <None Include="Properties\DataSources\DomainModel.League.datasource" />
     <None Include="Properties\DataSources\DomainModel.Map.datasource" />
+    <None Include="Properties\DataSources\DomainModel.Player.datasource" />
+    <None Include="Properties\DataSources\DomainModel.Race.datasource" />
     <None Include="Service References\SLGame\MVC3.SLGame.Game.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -137,10 +155,57 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\SLLeague\SLLeague.wsdl" />
+    <None Include="Service References\SLLeague\SLLeague.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLLeague\SLLeague1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLLeague\SLLeague2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLLeague\SLLeague3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\SLMap\SLMap.disco" />
     <None Include="Service References\SLMap\configuration91.svcinfo" />
     <None Include="Service References\SLMap\configuration.svcinfo" />
     <None Include="Service References\SLMap\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SLPlayer\SLPlayer.wsdl" />
+    <None Include="Service References\SLPlayer\SLPlayer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLPlayer\SLPlayer1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLPlayer\SLPlayer2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLPlayer\SLPlayer3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLRace\SLRace.disco" />
+    <None Include="Service References\SLRace\configuration91.svcinfo" />
+    <None Include="Service References\SLRace\configuration.svcinfo" />
+    <None Include="Service References\SLRace\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SLPlayer\SLPlayer.disco" />
+    <None Include="Service References\SLPlayer\configuration91.svcinfo" />
+    <None Include="Service References\SLPlayer\configuration.svcinfo" />
+    <None Include="Service References\SLPlayer\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SLLeague\SLLeague.disco" />
+    <None Include="Service References\SLLeague\configuration91.svcinfo" />
+    <None Include="Service References\SLLeague\configuration.svcinfo" />
+    <None Include="Service References\SLLeague\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -200,6 +265,20 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\Game\Details.cshtml" />
+    <Content Include="Views\Game\Create.cshtml" />
+    <None Include="Service References\SLRace\SLRace.wsdl" />
+    <None Include="Service References\SLRace\SLRace.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLRace\SLRace1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLRace\SLRace2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLRace\SLRace3.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -215,7 +294,10 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\SLGame\" />
+    <WCFMetadataStorage Include="Service References\SLLeague\" />
     <WCFMetadataStorage Include="Service References\SLMap\" />
+    <WCFMetadataStorage Include="Service References\SLPlayer\" />
+    <WCFMetadataStorage Include="Service References\SLRace\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DomainModel\DomainModel.csproj">

@@ -25,6 +25,10 @@ namespace MVC3.Models
         public string player1Race { get; set; }
 
         [Required]
+        [DisplayName("Player 1 Race Code")]
+        public string player1RaceCode { get; set; }
+
+        [Required]
         [DisplayName("Player 1 Code")]
         public string player1Code { get; set; }
 
@@ -39,6 +43,10 @@ namespace MVC3.Models
         [Required]
         [DisplayName("Player 2 Race")]
         public string player2Race { get; set; }
+
+        [Required]
+        [DisplayName("Player 2 Race Code")]
+        public string player2RaceCode { get; set; }
 
         [Required]
         [DisplayName("Player 2 Code")]
@@ -146,6 +154,30 @@ namespace MVC3.Models
 
         private static SLGame.Game DTO_to_SL(PLGame game)
         {
+            SLMap.Map SLMap = new MVC3.SLMap.ISMap();
+            SLMap.name = game.map;
+            SLMap.size = game.size;
+            SLMap.spawns = game.spawns;
+
+            SLLeague.League SLLeague1 = new MVC3.SLLeague.ISLLeague();
+            SLLeague1.name = game.player1League;
+            SLLeague.League SLLeague2 = new MVC3.SLLeague.ISLLeague();
+            SLLeague1.name = game.player2League;
+
+            SLRace.Race SLRace1 = new MVC3.SLRace.ISRace();
+            SLRace1.name = game.player1Race;
+            SLRace1.code = game.player1RaceCode;
+            SLRace.Race SLRace2 = new MVC3.SLRace.ISRace();
+            SLRace2.name = game.player2Race;
+            SLRace2.code = game.player2RaceCode;
+
+            SLPlayer.Player SLPlayer1 = new MVC3.SLPlayer.ISPlayer();
+            SLPlayer1.name = game.player1Name;
+            SLPlayer1.league = SLLeague1;
+            SLPlayer1.race = SLRace1;
+
+
+
             SLGame.Game SLGame = new MVC3.SLGame.Game();
             SLMap.Map SLMap = new MVC3.SLMap.Map();
             SLGame.id = game.id;

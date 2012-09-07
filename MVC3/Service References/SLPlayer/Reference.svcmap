@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="47062127-50aa-4a62-951b-b235bd6bd306" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:60162/SLPlayer.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SLPlayer.wsdl" MetadataType="Wsdl" ID="a70d326b-4a9b-4cbf-b7ad-9b69c8d80e1a" SourceId="1" SourceUrl="http://localhost:60162/SLPlayer.svc?wsdl" />
+    <MetadataFile FileName="SLPlayer.xsd" MetadataType="Schema" ID="8fb8706e-6e55-4f0d-a5f5-b45c6eb4220a" SourceId="1" SourceUrl="http://localhost:60162/SLPlayer.svc?xsd=xsd0" />
+    <MetadataFile FileName="SLPlayer1.xsd" MetadataType="Schema" ID="a81ff2b9-1335-4e5a-b206-62ebcbde9289" SourceId="1" SourceUrl="http://localhost:60162/SLPlayer.svc?xsd=xsd2" />
+    <MetadataFile FileName="SLPlayer2.xsd" MetadataType="Schema" ID="32a72db2-9a78-4ee2-9e9c-4f869ccae4d2" SourceId="1" SourceUrl="http://localhost:60162/SLPlayer.svc?xsd=xsd3" />
+    <MetadataFile FileName="SLPlayer3.xsd" MetadataType="Schema" ID="95ad910f-4267-41b9-b0a8-982b40521659" SourceId="1" SourceUrl="http://localhost:60162/SLPlayer.svc?xsd=xsd1" />
+    <MetadataFile FileName="SLPlayer.disco" MetadataType="Disco" ID="04d704c0-9353-4a07-a870-3081a23f98bf" SourceId="1" SourceUrl="http://localhost:60162/SLPlayer.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

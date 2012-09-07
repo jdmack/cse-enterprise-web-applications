@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SLRace" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:60162/SLRace.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:60162/SLRace.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:60162/SLRace.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:60162/SLRace.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DomainModel" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISLRace_GetRace_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRace" />
+  </wsdl:message>
+  <wsdl:message name="ISLRace_GetRace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISLRace_InsertRace_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRace" />
+  </wsdl:message>
+  <wsdl:message name="ISLRace_InsertRace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISLRace_UpdateRace_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRace" />
+  </wsdl:message>
+  <wsdl:message name="ISLRace_UpdateRace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISLRace_DeleteRace_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRace" />
+  </wsdl:message>
+  <wsdl:message name="ISLRace_DeleteRace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISLRace_GetRaceList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRaceList" />
+  </wsdl:message>
+  <wsdl:message name="ISLRace_GetRaceList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRaceListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISLRace">
+    <wsdl:operation name="GetRace">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLRace/GetRace" message="tns:ISLRace_GetRace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLRace/GetRaceResponse" message="tns:ISLRace_GetRace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertRace">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLRace/InsertRace" message="tns:ISLRace_InsertRace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLRace/InsertRaceResponse" message="tns:ISLRace_InsertRace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRace">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLRace/UpdateRace" message="tns:ISLRace_UpdateRace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLRace/UpdateRaceResponse" message="tns:ISLRace_UpdateRace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRace">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLRace/DeleteRace" message="tns:ISLRace_DeleteRace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLRace/DeleteRaceResponse" message="tns:ISLRace_DeleteRace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRaceList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLRace/GetRaceList" message="tns:ISLRace_GetRaceList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLRace/GetRaceListResponse" message="tns:ISLRace_GetRaceList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISLRace" type="tns:ISLRace">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRace">
+      <soap:operation soapAction="http://tempuri.org/ISLRace/GetRace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRace">
+      <soap:operation soapAction="http://tempuri.org/ISLRace/InsertRace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRace">
+      <soap:operation soapAction="http://tempuri.org/ISLRace/UpdateRace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRace">
+      <soap:operation soapAction="http://tempuri.org/ISLRace/DeleteRace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRaceList">
+      <soap:operation soapAction="http://tempuri.org/ISLRace/GetRaceList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SLRace">
+    <wsdl:port name="BasicHttpBinding_ISLRace" binding="tns:BasicHttpBinding_ISLRace">
+      <soap:address location="http://localhost:60162/SLRace.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
