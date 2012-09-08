@@ -161,3 +161,11 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+
+#############
+## CSE136 Appconfig
+#############
+BLTest/App.config
+DALTest/App.config
+SL/Web.config
