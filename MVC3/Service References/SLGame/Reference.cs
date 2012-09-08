@@ -745,7 +745,7 @@ namespace MVC3.SLGame {
         void UpdateGame(MVC3.SLGame.Game game, ref string[] errors);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLGame/DeleteGame", ReplyAction="http://tempuri.org/ISLGame/DeleteGameResponse")]
-        void DeleteGame(int id, ref string[] errors);
+        void DeleteGame(MVC3.SLGame.Game game, ref string[] errors);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLGame/GetGameList", ReplyAction="http://tempuri.org/ISLGame/GetGameListResponse")]
         MVC3.SLGame.Game[] GetGameList(ref string[] errors);
@@ -790,8 +790,8 @@ namespace MVC3.SLGame {
             base.Channel.UpdateGame(game, ref errors);
         }
         
-        public void DeleteGame(int id, ref string[] errors) {
-            base.Channel.DeleteGame(id, ref errors);
+        public void DeleteGame(MVC3.SLGame.Game game, ref string[] errors) {
+            base.Channel.DeleteGame(game, ref errors);
         }
         
         public MVC3.SLGame.Game[] GetGameList(ref string[] errors) {
