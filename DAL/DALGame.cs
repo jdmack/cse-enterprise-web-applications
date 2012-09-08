@@ -272,5 +272,20 @@ namespace DAL
 
             return download_count;
         }
+
+        public static List<Game> GetPopularGameList(ref List<string> errors)
+        {
+            List<Game> gameList = GetGameList(ref errors);
+
+            // add download count
+            foreach (Game game in gameList)
+            {
+                game.downloadCount = GetDownloadCount(game.id, ref errors);
+            }
+
+            // sort
+            gameList = gameList.OrderBy(x => x.downloadCount).ToList();
+            return gameList;
+        }
     }
 }

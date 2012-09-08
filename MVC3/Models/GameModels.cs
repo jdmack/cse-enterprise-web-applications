@@ -125,6 +125,13 @@ namespace MVC3.Models
             return gameList;
         }
 
+        public static List<PLGame> GetPopularGameList()
+        {
+            List<PLGame> gameList = GetGameList();
+            gameList = gameList.OrderBy(x => x.downloadCount).ToList();
+            return gameList;
+        }
+
         public static void CreateGame(PLGame g)
         {
             SLGame.Game newGame = DTO_to_SL(g);

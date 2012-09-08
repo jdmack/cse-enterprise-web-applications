@@ -25,7 +25,12 @@ namespace MVC3.Controllers
             PLGame g = GameClientService.GetGameDetail(id);
             return View("Details", g);
         }
-         
+
+        public ActionResult PopList()
+        {
+            List<PLGame> myGames = GameClientService.GetPopularGameList();
+            return PartialView("Pop", myGames);
+        }
         public ActionResult Create()
         {
             if (HttpContext != null)
