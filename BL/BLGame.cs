@@ -181,7 +181,9 @@ namespace BL
                 return null;
             }
 
-            return (DALGame.GetGameDetail(id, ref errors));
+            Game game =  DALGame.GetGameDetail(id, ref errors);
+            game.downloadCount = DALGame.GetDownloadCount(game.id, ref errors);
+            return game;
         }
 
         public static void DeleteGame(Game game, ref List<string> errors)

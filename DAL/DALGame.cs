@@ -25,7 +25,7 @@ namespace DAL
                 game.player2.id = DALPlayer.InsertPlayer(game.player2, ref errors);
                 game.player2_race = game.player2.race;
                 game.map.id = DALMap.InsertMap(game.map, ref errors);
-               
+
                 SqlDataAdapter mySA = new SqlDataAdapter(strSQL, conn);
                 mySA.SelectCommand.CommandType = CommandType.StoredProcedure;
                 mySA.SelectCommand.Parameters.Add(new SqlParameter("@matchup", SqlDbType.Char, 3));
@@ -161,7 +161,7 @@ namespace DAL
                 if (myDS.Tables[0].Rows.Count == 0)
                     return null;
 
-                game = new Game();    
+                game = new Game();
                 game.id = id;
                 game.matchup = myDS.Tables[0].Rows[0]["matchup"].ToString();
                 game.time = Convert.ToDateTime(myDS.Tables[0].Rows[0]["time"].ToString());
@@ -171,7 +171,7 @@ namespace DAL
                 game.player2 = DALPlayer.GetPlayerDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["player2"].ToString()), ref errors);
                 game.player2_race = DALRace.GetRaceDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["player2_race"].ToString()), ref errors);
                 game.winner = DALPlayer.GetPlayerDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["winner"].ToString()), ref errors);
-                game.map = DALMap.GetMapDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["map"].ToString()), ref errors);         
+                game.map = DALMap.GetMapDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["map"].ToString()), ref errors);
             }
             catch (Exception e)
             {
@@ -234,6 +234,43 @@ namespace DAL
             }
 
             return gameList;
+        }
+
+
+        public static int GetDownloadCount(int game_id, ref List<string> errors)
+        {
+            SqlConnection conn = new SqlConnection(connection_string);
+            int download_count = -1;
+
+            try
+            {
+                string strSQL = "spGetDownloadCount";
+
+                SqlDataAdapter mySA = new SqlDataAdapter(strSQL, conn);
+                mySA.SelectCommand.CommandType = CommandType.StoredProcedure;
+                mySA.SelectCommand.Parameters.Add(new SqlParameter("@game_id", SqlDbType.Int));
+
+                mySA.SelectCommand.Parameters["@game_id"].Value = game_id;
+
+                DataSet myDS = new DataSet();
+                mySA.Fill(myDS);
+
+                if (myDS.Tables[0].Rows.Count == 0)
+                    return -1;
+
+                download_count = Convert.ToInt32(myDS.Tables[0].Rows[0]["matchup"].ToString());
+            }
+            catch (Exception e)
+            {
+                errors.Add("Error: " + e.ToString());
+            }
+            finally
+            {
+                conn.Dispose();
+                conn = null;
+            }
+
+            return download_count;
         }
     }
 }
