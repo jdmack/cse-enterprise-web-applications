@@ -23,23 +23,44 @@ namespace MVC3.Tests.Controllers
     public class GameControllerTest
     {
         [TestMethod]
-        public void CreateStudentTest()
+        public void CreateGameTest()
         {
             GameController controller = new GameController();
 
             // simulate web form posting data
             FormCollection createFormValues = new FormCollection();
 
-            Guid guid = Guid.NewGuid(); // this helps generate a random string for the ID and SSN
-            string studentID = guid.ToString().Substring(0, 20);
-            createFormValues.Add("ID", studentID);
-            createFormValues.Add("FirstName", "Isaac");
-            createFormValues.Add("LastName", "Chu");
-            createFormValues.Add("SSN", "111223456");
-            createFormValues.Add("EmailAddress", "ichu@ucsd.edu");
-            createFormValues.Add("Password", "pass1234");
+            string gameID = "15";
+            createFormValues.Add("id", gameID);
+            createFormValues.Add("player1Name", "TestPlayer1");
+            createFormValues.Add("player1Race", "TestPlayer1Race");
+            createFormValues.Add("player1Code", "222");
+            createFormValues.Add("player1RaceCode", "T");
+            createFormValues.Add("player1League", "TestLeague1");
+            createFormValues.Add("player2Name", "TestPlayer2");
+            createFormValues.Add("player2Race", "TestPlayer2Race");
+            createFormValues.Add("player2RaceCode", "Z");
+            createFormValues.Add("player2Code", "333");
+            createFormValues.Add("player2League", "TestLeague2");
+            createFormValues.Add("matchup", "TvZ");
+            createFormValues.Add("length", "00:15:00");
+            createFormValues.Add("time", "9/9/2012 2:58:00 AM");
+            createFormValues.Add("winnerName", "TestPlayer2");
+            createFormValues.Add("map", "TestMap");
+            createFormValues.Add("spawns", "4");
+            createFormValues.Add("size", "100x100");
 
-            // Call the form submission to create a new student
+            /*
+            createFormValues.Add("player1_id", "10");
+            createFormValues.Add("player1_race_id", "10");
+            createFormValues.Add("player1_league_id", "10");
+            createFormValues.Add("player2_id", "11");
+            createFormValues.Add("player2_race_id", "11");
+            createFormValues.Add("player2_league_id", "11");
+            createFormValues.Add("map_id", "11");
+            */
+             
+            // Call the form submission to create a new game
             RedirectToRouteResult result = controller.Create(createFormValues) as RedirectToRouteResult;
 
             // Verify the redirection
@@ -47,44 +68,111 @@ namespace MVC3.Tests.Controllers
             Assert.AreEqual("Index", action);
 
             // let's take a look a the edit page's info for this student ID just created
-            ViewResult editViewResult = (ViewResult)controller.Edit(studentID);
+            ViewResult editViewResult = (ViewResult)controller.Edit(gameID);
 
             // verify we are preloading the data correctly in the edit view 
-            MVC3.Models.PLStudent model = (MVC3.Models.PLStudent)editViewResult.ViewData.Model;
-            Assert.AreEqual(studentID, model.ID);
-            Assert.AreEqual("Isaac", model.FirstName);
-            Assert.AreEqual("Chu", model.LastName);
-            Assert.AreEqual("111223456", model.SSN);
-            Assert.AreEqual("ichu@ucsd.edu", model.EmailAddress);
-            Assert.AreEqual("pass1234", model.Password);
-
+            MVC3.Models.PLGame model = (MVC3.Models.PLGame)editViewResult.ViewData.Model;
+            Assert.AreEqual(gameID, model.id);
+            Assert.AreEqual("TestPlayer1", model.player1Name);
+            Assert.AreEqual("TestPlayer1Race", model.player1Race);
+            Assert.AreEqual("222", model.player1Code);
+            Assert.AreEqual("T", model.player1RaceCode);
+            Assert.AreEqual("TestLeague1", model.player1League);
+            Assert.AreEqual("TestPlayer2", model.player1Name);
+            Assert.AreEqual("TestPlayer2Race", model.player2Race);
+            Assert.AreEqual("Z", model.player2RaceCode);
+            Assert.AreEqual("333", model.player2Code);
+            Assert.AreEqual("TestLeague2", model.player2League);
+            Assert.AreEqual("TvZ", model.matchup);
+            Assert.AreEqual("00:15:00", model.length);
+            Assert.AreEqual("9/9/2012 2:58:00 AM", model.time);
+            Assert.AreEqual("TestPlayer2", model.winnerName);
+            Assert.AreEqual("TestMap", model.map);
+            Assert.AreEqual("4", model.spawns);
+            Assert.AreEqual("100x100", model.size);
+            /*
+            Assert.AreEqual("10", model.player1_id);
+            Assert.AreEqual("10", model.player1_race_id);
+            Assert.AreEqual("10", model.player1_league_id);
+            Assert.AreEqual("11", model.player2_id);
+            Assert.AreEqual("11", model.player2_race_id);
+            Assert.AreEqual("11", model.player2_league_id);
+            Assert.AreEqual("11", model.map_id);
+            */
             // let's test the editing of this student
             FormCollection editFormValues = new FormCollection();
-            editFormValues.Add("ID", studentID);
-            editFormValues.Add("FirstName", "Isaac2");
-            editFormValues.Add("LastName", "Chu2");
-            editFormValues.Add("SSN", "22334567");
-            editFormValues.Add("EmailAddress", "ichu2@ucsd.edu");
-            editFormValues.Add("Password", "pass4321");
-            result = controller.Edit(studentID, editFormValues) as RedirectToRouteResult;
+
+            result = controller.Edit(gameID, editFormValues) as RedirectToRouteResult;
+
+            editFormValues.Add("id", gameID);
+            editFormValues.Add("player1Name", "TestPlayer1b");
+            editFormValues.Add("player1Race", "TestPlayer1Raceb");
+            editFormValues.Add("player1Code", "2224");
+            editFormValues.Add("player1RaceCode", "B");
+            editFormValues.Add("player1League", "TestLeague1b");
+            editFormValues.Add("player2Name", "TestPlayer2b");
+            editFormValues.Add("player2Race", "TestPlayer2Raceb");
+            editFormValues.Add("player2RaceCode", "B");
+            editFormValues.Add("player2Code", "3332");
+            editFormValues.Add("player2League", "TestLeague2b");
+            editFormValues.Add("matchup", "BvB");
+            editFormValues.Add("length", "00:15:59");
+            editFormValues.Add("time", "9/9/2012 2:58:59 AM");
+            editFormValues.Add("winnerName", "TestPlayer2b");
+            editFormValues.Add("map", "TestMapb");
+            editFormValues.Add("spawns", "5");
+            editFormValues.Add("size", "100x101");
+
+            /*
+            editFormValues.Add("player1_id", "10");
+            editFormValues.Add("player1_race_id", "10");
+            editFormValues.Add("player1_league_id", "10");
+            editFormValues.Add("player2_id", "11");
+            editFormValues.Add("player2_race_id", "11");
+            editFormValues.Add("player2_league_id", "11");
+            editFormValues.Add("map_id", "11");
+            */
 
             // Verify the redirection is back to index page
             action = result.RouteValues["action"].ToString();
             Assert.AreEqual("Index", action);
 
             // let's verify the edit is successful by looking at the detail view page
-            ViewResult detailViewResult = (ViewResult)controller.Details(studentID);
+            ViewResult detailViewResult = (ViewResult)controller.Details(Convert.ToInt32(gameID));
 
             // verify we are preloading the data correctly in the edit view 
-            model = (MVC3.Models.PLStudent)detailViewResult.ViewData.Model;
-            Assert.AreEqual(studentID, model.ID);
-            Assert.AreEqual("Isaac2", model.FirstName);
-            Assert.AreEqual("Chu2", model.LastName);
-            Assert.AreEqual("22334567", model.SSN);
-            Assert.AreEqual("ichu2@ucsd.edu", model.EmailAddress);
+            model = (MVC3.Models.PLGame)detailViewResult.ViewData.Model;
+
+            Assert.AreEqual(gameID, model.id);
+            Assert.AreEqual("TestPlayer1b", model.player1Name);
+            Assert.AreEqual("TestPlayer1Raceb", model.player1Race);
+            Assert.AreEqual("2224", model.player1Code);
+            Assert.AreEqual("B", model.player1RaceCode);
+            Assert.AreEqual("TestLeague1b", model.player1League);
+            Assert.AreEqual("TestPlayer2b", model.player1Name);
+            Assert.AreEqual("TestPlayer2Raceb", model.player2Race);
+            Assert.AreEqual("B", model.player2RaceCode);
+            Assert.AreEqual("3332", model.player2Code);
+            Assert.AreEqual("TestLeague2b", model.player2League);
+            Assert.AreEqual("BvB", model.matchup);
+            Assert.AreEqual("00:15:59", model.length);
+            Assert.AreEqual("9/9/2012 2:58:59 AM", model.time);
+            Assert.AreEqual("TestPlayer2b", model.winnerName);
+            Assert.AreEqual("TestMapb", model.map);
+            Assert.AreEqual("5", model.spawns);
+            Assert.AreEqual("100x101", model.size);
+            /*
+            Assert.AreEqual("10", model.player1_id);
+            Assert.AreEqual("10", model.player1_race_id);
+            Assert.AreEqual("10", model.player1_league_id);
+            Assert.AreEqual("11", model.player2_id);
+            Assert.AreEqual("11", model.player2_race_id);
+            Assert.AreEqual("11", model.player2_league_id);
+            Assert.AreEqual("11", model.map_id);
+            */
 
             // now, delete the student we just created
-            result = controller.Delete(studentID) as RedirectToRouteResult;
+            result = controller.Delete(gameID) as RedirectToRouteResult;
             action = result.RouteValues["action"].ToString();
             Assert.AreEqual("Index", action);
         }

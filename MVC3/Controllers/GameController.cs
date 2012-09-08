@@ -108,7 +108,7 @@ namespace MVC3.Controllers
                 game.player1League = collection["player1League"];
                 game.player2Name = collection["player2Name"];
                 game.player2Race = collection["player2Race"];
-                game.player2RaceCode = collection["player1RaceCode"];
+                game.player2RaceCode = collection["player2RaceCode"];
                 game.player2Code = collection["player2Code"];
                 game.player2League = collection["player2League"];
                 game.matchup = collection["matchup"];
