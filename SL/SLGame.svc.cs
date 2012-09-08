@@ -27,9 +27,9 @@ namespace SL
             BLGame.UpdateGame(game, ref errors);
         }
 
-        public void DeleteGame(Game game, ref List<string> errors)
+        public void DeleteGame(int id, ref List<string> errors)
         {
-            BLGame.DeleteGame(game, ref errors);
+            BLGame.DeleteGame(id, ref errors);
         }
 
         public List<Game> GetGameList(ref List<string> errors)

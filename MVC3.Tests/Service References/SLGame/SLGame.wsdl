@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SLGame" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:60162/SLGame.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:60162/SLGame.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:60162/SLGame.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:60162/SLGame.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DomainModel" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISLGame_GetGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGame" />
+  </wsdl:message>
+  <wsdl:message name="ISLGame_GetGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISLGame_InsertGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertGame" />
+  </wsdl:message>
+  <wsdl:message name="ISLGame_InsertGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISLGame_UpdateGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGame" />
+  </wsdl:message>
+  <wsdl:message name="ISLGame_UpdateGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISLGame_DeleteGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGame" />
+  </wsdl:message>
+  <wsdl:message name="ISLGame_DeleteGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISLGame_GetGameList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGameList" />
+  </wsdl:message>
+  <wsdl:message name="ISLGame_GetGameList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGameListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISLGame">
+    <wsdl:operation name="GetGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLGame/GetGame" message="tns:ISLGame_GetGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLGame/GetGameResponse" message="tns:ISLGame_GetGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLGame/InsertGame" message="tns:ISLGame_InsertGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLGame/InsertGameResponse" message="tns:ISLGame_InsertGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLGame/UpdateGame" message="tns:ISLGame_UpdateGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLGame/UpdateGameResponse" message="tns:ISLGame_UpdateGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLGame/DeleteGame" message="tns:ISLGame_DeleteGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLGame/DeleteGameResponse" message="tns:ISLGame_DeleteGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGameList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLGame/GetGameList" message="tns:ISLGame_GetGameList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLGame/GetGameListResponse" message="tns:ISLGame_GetGameList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISLGame" type="tns:ISLGame">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetGame">
+      <soap:operation soapAction="http://tempuri.org/ISLGame/GetGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertGame">
+      <soap:operation soapAction="http://tempuri.org/ISLGame/InsertGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGame">
+      <soap:operation soapAction="http://tempuri.org/ISLGame/UpdateGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGame">
+      <soap:operation soapAction="http://tempuri.org/ISLGame/DeleteGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameList">
+      <soap:operation soapAction="http://tempuri.org/ISLGame/GetGameList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SLGame">
+    <wsdl:port name="BasicHttpBinding_ISLGame" binding="tns:BasicHttpBinding_ISLGame">
+      <soap:address location="http://localhost:60162/SLGame.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

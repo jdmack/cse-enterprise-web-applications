@@ -153,6 +153,13 @@ namespace MVC3.Models
             return DTO_to_PL(newGame);
         }
 
+        public static void Delete(int id)
+        {
+            SLGame.ISLGame SLGame = new SLGame.SLGameClient();
+            string[] errors = new string[0];
+            SLGame.DeleteGame(id, ref errors);
+        }
+
         private static PLGame DTO_to_PL(SLGame.Game game)
         {
             PLGame PLGame = new Models.PLGame();

@@ -131,12 +131,12 @@ namespace MVC3.Controllers
                 return View();
             }
         }
-        /*
+        
         public ActionResult Delete(string id)
         {
             try
             {
-                GameClientService.Delete(id);
+                GameClientService.Delete(Convert.ToInt32(id));
                 return RedirectToAction("Index");
             }
             catch
@@ -144,8 +144,6 @@ namespace MVC3.Controllers
                 return View();
             }
         }
-        */
-
 
 
 

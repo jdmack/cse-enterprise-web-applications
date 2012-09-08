@@ -40,6 +40,8 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Extensions" />
@@ -49,17 +51,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\GameControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Service References\SLGame\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
+    <None Include="Service References\SLGame\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SLGame\configuration.svcinfo" />
+    <None Include="Service References\SLGame\configuration91.svcinfo" />
+    <None Include="Service References\SLGame\SLGame.disco" />
+    <None Include="Service References\SLGame\SLGame.wsdl" />
+    <None Include="Service References\SLGame\SLGame.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLGame\SLGame1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLGame\SLGame2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLGame\SLGame3.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MVC3\MVC3.csproj">
       <Project>{7C941F45-9175-4BB4-A7A1-7E02AE76ED3A}</Project>
       <Name>MVC3</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\SLGame\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

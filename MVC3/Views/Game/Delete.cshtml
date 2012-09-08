@@ -1,0 +1,148 @@
+﻿@model MVC3.Models.PLGame
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>PLGame</legend>
+
+    <div class="display-label">gameName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.gameName)
+    </div>
+
+    <div class="display-label">player1Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player1Name)
+    </div>
+
+    <div class="display-label">player1_id</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player1_id)
+    </div>
+
+    <div class="display-label">player1Race</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player1Race)
+    </div>
+
+    <div class="display-label">player1_race_id</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player1_race_id)
+    </div>
+
+    <div class="display-label">player1RaceCode</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player1RaceCode)
+    </div>
+
+    <div class="display-label">player1Code</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player1Code)
+    </div>
+
+    <div class="display-label">player1League</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player1League)
+    </div>
+
+    <div class="display-label">player1_league_id</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player1_league_id)
+    </div>
+
+    <div class="display-label">player2Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player2Name)
+    </div>
+
+    <div class="display-label">player2_id</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player2_id)
+    </div>
+
+    <div class="display-label">player2Code</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player2Code)
+    </div>
+
+    <div class="display-label">player2Race</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player2Race)
+    </div>
+
+    <div class="display-label">player2_race_id</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player2_race_id)
+    </div>
+
+    <div class="display-label">player2RaceCode</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player2RaceCode)
+    </div>
+
+    <div class="display-label">player2League</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player2League)
+    </div>
+
+    <div class="display-label">player2_league_id</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.player2_league_id)
+    </div>
+
+    <div class="display-label">matchup</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.matchup)
+    </div>
+
+    <div class="display-label">length</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.length)
+    </div>
+
+    <div class="display-label">time</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.time)
+    </div>
+
+    <div class="display-label">winnerName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.winnerName)
+    </div>
+
+    <div class="display-label">map</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.map)
+    </div>
+
+    <div class="display-label">map_id</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.map_id)
+    </div>
+
+    <div class="display-label">spawns</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.spawns)
+    </div>
+
+    <div class="display-label">size</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.size)
+    </div>
+
+    <div class="display-label">downloadCount</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.downloadCount)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -186,14 +186,9 @@ namespace BL
             return game;
         }
 
-        public static void DeleteGame(Game game, ref List<string> errors)
+        public static void DeleteGame(int id, ref List<string> errors)
         {
-            if (game.id == null)
-            {
-                errors.Add("Invalid game ID");
-            }
-
-            if (Convert.ToInt32(game.id) < 0)
+            if (id < 0)
             {
                 errors.Add("The game ID cannot be negative");
             }
@@ -203,7 +198,9 @@ namespace BL
                 //AsynchLog.LogNow(errors);
                 return;
             }
-            
+
+            Game game = DALGame.GetGameDetail(id, ref errors);
+
             DALRace.DeleteRace(game.player1_race.id, ref errors);
             DALLeague.DeleteLeague(game.player1.league.id, ref errors);
             DALPlayer.DeletePlayer(game.player1.id, ref errors);
