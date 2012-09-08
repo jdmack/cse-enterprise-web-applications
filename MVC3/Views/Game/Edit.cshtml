@@ -1,10 +1,10 @@
 ﻿@model MVC3.Models.PLGame
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
 
-<h2>Create</h2>
+<h2>Edit</h2>
 
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
@@ -13,6 +13,17 @@
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>PLGame</legend>
+
+        @Html.HiddenFor(model => model.id)
+        @Html.HiddenFor(model => model.player1_id)
+        @Html.HiddenFor(model => model.player1_race_id)
+        @Html.HiddenFor(model => model.player1_league_id)
+
+        @Html.HiddenFor(model => model.player2_id)
+        @Html.HiddenFor(model => model.player2_race_id)
+        @Html.HiddenFor(model => model.player2_league_id)
+
+        @Html.HiddenFor(model => model.map_id)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.player1Name)
@@ -63,27 +74,27 @@
         </div>
 
         <div class="editor-label">
+            @Html.LabelFor(model => model.player2Code)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.player2Code)
+            @Html.ValidationMessageFor(model => model.player2Code)
+        </div>
+
+        <div class="editor-label">
             @Html.LabelFor(model => model.player2Race)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.player2Race)
             @Html.ValidationMessageFor(model => model.player2Race)
         </div>
-        
+
         <div class="editor-label">
             @Html.LabelFor(model => model.player2RaceCode)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.player2RaceCode)
             @Html.ValidationMessageFor(model => model.player2RaceCode)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.player2Code)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.player2Code)
-            @Html.ValidationMessageFor(model => model.player2Code)
         </div>
 
         <div class="editor-label">
@@ -159,7 +170,7 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Save" />
         </p>
     </fieldset>
 }

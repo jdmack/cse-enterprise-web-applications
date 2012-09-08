@@ -109,7 +109,7 @@ namespace BL
             }
 
             // regex
-            Match match = Regex.Match(game.length, @"[0-9]*:[0-9]2");
+            Match match = Regex.Match(game.length, @"[0-9]*:[0-9][0-9]:[0-9][0-9]");
 
             if (!match.Success)
             {
