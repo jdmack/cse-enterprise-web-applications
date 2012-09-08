@@ -64,7 +64,7 @@ namespace BL
 
             if (errors.Count > 0)
             {
-                AsynchLog.LogNow(errors);
+                //AsynchLog.LogNow(errors);
                 return 0;
             }
             
@@ -148,7 +148,7 @@ namespace BL
 
             if (errors.Count > 0)
             {
-                AsynchLog.LogNow(errors);
+                //AsynchLog.LogNow(errors);
                 return;
             }
 
@@ -177,7 +177,7 @@ namespace BL
 
             if (errors.Count > 0)
             {
-                AsynchLog.LogNow(errors);
+                //AsynchLog.LogNow(errors);
                 return null;
             }
 
@@ -198,7 +198,7 @@ namespace BL
 
             if (errors.Count > 0)
             {
-                AsynchLog.LogNow(errors);
+                //AsynchLog.LogNow(errors);
                 return;
             }
             

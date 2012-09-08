@@ -49,10 +49,13 @@ namespace MVC3.Controllers
                 game.player1Name = collection["player1Name"];
                 game.player1Race = collection["player1Race"];
                 game.player1Code = collection["player1Code"];
+                game.player1RaceCode = collection["player1RaceCode"];
                 game.player1League = collection["player1League"];
                 game.player2Name = collection["player2Name"];
                 game.player2Race = collection["player2Race"];
+                game.player2RaceCode = collection["player1RaceCode"];
                 game.player2Code = collection["player2Code"];
+                game.player2League = collection["player2League"];
                 game.matchup = collection["matchup"];
                 game.length = collection["length"];
                 game.time = collection["time"];
@@ -67,6 +70,7 @@ namespace MVC3.Controllers
             }
             catch (Exception e)
             {
+
                 return View();
             }
         }

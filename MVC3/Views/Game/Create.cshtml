@@ -31,6 +31,14 @@
         </div>
 
         <div class="editor-label">
+            @Html.LabelFor(model => model.player1RaceCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.player1RaceCode)
+            @Html.ValidationMessageFor(model => model.player1RaceCode)
+        </div>
+
+        <div class="editor-label">
             @Html.LabelFor(model => model.player1Code)
         </div>
         <div class="editor-field">
@@ -60,6 +68,14 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.player2Race)
             @Html.ValidationMessageFor(model => model.player2Race)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.player2RaceCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.player2RaceCode)
+            @Html.ValidationMessageFor(model => model.player2RaceCode)
         </div>
 
         <div class="editor-label">

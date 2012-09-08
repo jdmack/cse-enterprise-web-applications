@@ -158,35 +158,44 @@ namespace MVC3.Models
 
         private static SLGame.Game DTO_to_SL(PLGame game)
         {
-            SLMap.Map SLMap = new MVC3.SLMap.Map();
-            SLMap.name = game.map;
-            SLMap.size = game.size;
-            SLMap.spawns = Convert.ToInt32(game.spawns);
-
-            SLLeague.League SLLeague1 = new MVC3.SLLeague.League();
-            SLLeague1.name = game.player1League;
-            SLLeague.League SLLeague2 = new MVC3.SLLeague.League();
-            SLLeague1.name = game.player2League;
-
-            SLRace.Race SLRace1 = new MVC3.SLRace.Race();
-            SLRace1.name = game.player1Race;
-            SLRace1.code = Convert.ToChar(game.player1RaceCode);
-            SLRace.Race SLRace2 = new MVC3.SLRace.Race();
-            SLRace2.name = game.player2Race;
-            SLRace2.code = Convert.ToChar(game.player2RaceCode);
-
-            SLPlayer.Player SLPlayer1 = new MVC3.SLPlayer.Player();
-            SLPlayer1.name = game.player1Name;
-           // SLPlayer1.league = SLLeague1;
-            //SLPlayer1.race = SLRace1;
-            
-
-
-            SLGame.Game SLGame = new MVC3.SLGame.Game();
-          
-            SLGame.id = game.id;
+            SLGame.Game SLGame = new SLGame.Game();
+            SLGame.matchup = game.matchup;
+            SLGame.time = Convert.ToDateTime(game.time);
             SLGame.length = game.length;
-            //SLGame.map =  ??
+
+            SLGame.player1 = new SLGame.Player();
+            SLGame.player1.name = game.player1Name;
+            SLGame.player1.code = Convert.ToInt32(game.player1Code);
+            SLGame.player1.league = new SLGame.League();
+            SLGame.player1.league.name = game.player1League;
+            SLGame.player1.race = new SLGame.Race();
+            SLGame.player1.race.name = game.player1Race;
+            SLGame.player1.race.code = Convert.ToChar(game.player1RaceCode);
+            SLGame.player1_race = SLGame.player1.race;
+
+            SLGame.player2 = new SLGame.Player();
+            SLGame.player2.name = game.player2Name;
+            SLGame.player2.code = Convert.ToInt32(game.player2Code);
+            SLGame.player2.league = new SLGame.League();
+            SLGame.player2.league.name = game.player2League;
+            SLGame.player2.race = new SLGame.Race();
+            SLGame.player2.race.name = game.player2Race;
+            SLGame.player2.race.code = Convert.ToChar(game.player2RaceCode);
+            SLGame.player2_race = SLGame.player2.race;
+
+            if (game.winnerName == game.player1Name)
+            {
+                SLGame.winner = SLGame.player1;
+            }
+            else
+            {
+                SLGame.winner = SLGame.player2;
+            }
+
+            SLGame.map = new SLGame.Map();
+            SLGame.map.name = game.map;
+            SLGame.map.spawns = Convert.ToInt32(game.spawns);
+            SLGame.map.size = game.size;
 
             return SLGame;
         }
