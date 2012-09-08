@@ -34,6 +34,6 @@ namespace DomainModel
         [DataMember]
         public Statistic player2_statistic = null;
         [DataMember]
-        public int download_count = -1;
+        public int downloadCount = -1;
     }
 }

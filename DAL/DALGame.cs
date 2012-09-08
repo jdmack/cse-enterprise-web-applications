@@ -37,8 +37,7 @@ namespace DAL
                 mySA.SelectCommand.Parameters.Add(new SqlParameter("@player2_race", SqlDbType.Int));
                 mySA.SelectCommand.Parameters.Add(new SqlParameter("@winner", SqlDbType.Int));
                 mySA.SelectCommand.Parameters.Add(new SqlParameter("@map", SqlDbType.Int));
-                mySA.SelectCommand.Parameters.Add(new SqlParameter("@download", SqlDbType.Int));
-                
+
                 mySA.SelectCommand.Parameters["@matchup"].Value = game.matchup;
                 mySA.SelectCommand.Parameters["@time"].Value = game.time;
                 mySA.SelectCommand.Parameters["@length"].Value = game.length;
@@ -48,7 +47,6 @@ namespace DAL
                 mySA.SelectCommand.Parameters["@player2_race"].Value = game.player2_race.id;
                 mySA.SelectCommand.Parameters["@winner"].Value = game.winner.id;
                 mySA.SelectCommand.Parameters["@map"].Value = game.map.id;
-                mySA.SelectCommand.Parameters["@download_count"].Value = 0; // User can't specify download count. Defaults the count to 0.
 
                 DataSet myDS = new DataSet();
                 mySA.Fill(myDS);
@@ -86,7 +84,6 @@ namespace DAL
                 mySA.SelectCommand.Parameters.Add(new SqlParameter("@player2_race", SqlDbType.Int));
                 mySA.SelectCommand.Parameters.Add(new SqlParameter("@winner", SqlDbType.Int));
                 mySA.SelectCommand.Parameters.Add(new SqlParameter("@map", SqlDbType.Int));
-                mySA.SelectCommand.Parameters.Add(new SqlParameter("@download_count", SqlDbType.Int));
 
                 mySA.SelectCommand.Parameters["@game_id"].Value = game.id;
                 mySA.SelectCommand.Parameters["@matchup"].Value = game.matchup;
@@ -98,7 +95,6 @@ namespace DAL
                 mySA.SelectCommand.Parameters["@player2_race"].Value = game.player2_race.id;
                 mySA.SelectCommand.Parameters["@winner"].Value = game.winner.id;
                 mySA.SelectCommand.Parameters["@map"].Value = game.map.id;
-                mySA.SelectCommand.Parameters["@download_count"].Value = game.download_count;
 
                 DataSet myDS = new DataSet();
                 mySA.Fill(myDS);
@@ -175,8 +171,7 @@ namespace DAL
                 game.player2 = DALPlayer.GetPlayerDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["player2"].ToString()), ref errors);
                 game.player2_race = DALRace.GetRaceDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["player2_race"].ToString()), ref errors);
                 game.winner = DALPlayer.GetPlayerDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["winner"].ToString()), ref errors);
-                game.map = DALMap.GetMapDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["map"].ToString()), ref errors);
-                game.download_count = Convert.ToInt32(myDS.Tables[0].Rows[0]["download_count"].ToString());
+                game.map = DALMap.GetMapDetail(Convert.ToInt32(myDS.Tables[0].Rows[0]["map"].ToString()), ref errors);         
             }
             catch (Exception e)
             {
@@ -224,7 +219,6 @@ namespace DAL
                     game.player2_race = DALRace.GetRaceDetail(Convert.ToInt32(myDS.Tables[0].Rows[i]["player2_race"].ToString()), ref errors);
                     game.winner = DALPlayer.GetPlayerDetail(Convert.ToInt32(myDS.Tables[0].Rows[i]["winner"].ToString()), ref errors);
                     game.map = DALMap.GetMapDetail(Convert.ToInt32(myDS.Tables[0].Rows[i]["map"].ToString()), ref errors);
-                    game.download_count = Convert.ToInt32(myDS.Tables[0].Rows[0]["download_count"].ToString());
 
                     gameList.Add(game);
                 }
