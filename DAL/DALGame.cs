@@ -215,7 +215,7 @@ namespace DAL
                     game = new Game();
 
                     game.id = Convert.ToInt32(myDS.Tables[0].Rows[i]["id"].ToString());
-                    game.matchup = myDS.Tables[0].Rows[0]["matchup"].ToString();
+                    game.matchup = myDS.Tables[0].Rows[i]["matchup"].ToString();
                     game.time = Convert.ToDateTime(myDS.Tables[0].Rows[i]["time"].ToString());
                     game.length = myDS.Tables[0].Rows[i]["length"].ToString();
                     game.player1 = DALPlayer.GetPlayerDetail(Convert.ToInt32(myDS.Tables[0].Rows[i]["player1"].ToString()), ref errors);
