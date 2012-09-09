@@ -17,6 +17,8 @@ namespace MVC3.Controllers
         {
             List<PLGame> myGames = GameClientService.GetGameList();
             ViewData["breadCrumData"] = "Game List";
+            List<PLGame> popgames = GameClientService.GetPopularGameList();
+            ViewBag.popgame = popgames;
             return View("Index",myGames);
         }
         
@@ -26,11 +28,6 @@ namespace MVC3.Controllers
             return View("Details", g);
         }
 
-        public ActionResult PopList()
-        {
-            List<PLGame> myGames = GameClientService.GetPopularGameList();
-            return PartialView("Pop", myGames);
-        }
         public ActionResult Create()
         {
             if (HttpContext != null)

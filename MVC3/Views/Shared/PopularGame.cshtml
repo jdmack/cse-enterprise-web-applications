@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MVC3.Models.PLGame>
+    <h3>Top download games</h3> 
+
+    <table>
+        <tr>
+            <th>
+                Matchup
+            </th>
+            <th>
+                Player 1 Name
+            </th>   
+            <th>
+                Player 2 Name
+            </th>
+            <th>
+                Map
+            </th>
+            <th>
+                Download Count
+            </th>
+        </tr>
+        
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.matchup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.player1Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.player2Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.map)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.downloadCount)
+        </td>
+    </tr>
+}
+    </table>

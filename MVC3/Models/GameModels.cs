@@ -107,6 +107,8 @@ namespace MVC3.Models
 
         [DisplayName("Download Count")]
         public int downloadCount { get; set; }
+
+
     }
     public static class GameClientService
     {
@@ -192,7 +194,7 @@ namespace MVC3.Models
             PLGame.length = game.length;
             PLGame.time = game.time.ToString();
             PLGame.winnerName = game.winner.name;
-            //PLGame.downloadCount = game.downloadCount.ToString();
+            PLGame.downloadCount = game.downloadCount;
             PLGame.map = game.map.name;
             PLGame.map_id = game.map.id.ToString();
             PLGame.spawns = game.map.spawns.ToString();
@@ -207,6 +209,7 @@ namespace MVC3.Models
             SLGame.matchup = game.matchup;
             SLGame.time = Convert.ToDateTime(game.time);
             SLGame.length = game.length;
+            SLGame.downloadCount = game.downloadCount;
 
             SLGame.player1 = new SLGame.Player();
             SLGame.player1.id = Convert.ToInt32(game.player1_id);

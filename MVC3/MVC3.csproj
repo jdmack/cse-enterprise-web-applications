@@ -293,9 +293,11 @@
     </None>
     <Content Include="Views\Game\Edit.cshtml" />
     <Content Include="Views\Game\Delete.cshtml" />
+    <Content Include="Views\Shared\PopularGame.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\PopularGame\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
